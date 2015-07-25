@@ -3,17 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.ummo.blinker.qmasternav.homeFragment"
-    android:background="#dedede">
+    tools:context="com.ummo.blinker.qmasternav.closeQFragment">
 
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Ummo QMaster Home"
-        android:id="@+id/textView"
+        android:text="@string/closeQFragText"
+        android:id="@+id/textView2"
         android:layout_gravity="center"
-        android:textColor="#6ac9e0"
-        android:background="#dedede" />
+        android:textColor="#6ac9e0" />
 </FrameLayout>
