@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/client_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="FNB"
+        android:textSize="20sp"
+        android:textColor="#6ac9e0"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="How can we help you?"
+        android:layout_below="@+id/client_name"
+        android:padding="10dp"
+        android:textSize="20sp"
+        android:textColor="#6ac9e0"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
+
+        <Button
+            android:id="@+id/service1"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="Deposit"
+            android:background="@drawable/button"
+            android:textColor="#FFFFFF"/>
+
+        <Button
+            android:id="@+id/service2"
+            android:layout_centerInParent="true"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="Withdrawals"
+            android:background="@drawable/button"
+            android:textColor="#FFFFFF"/>
+
+        <Button
+            android:id="@+id/service3"
+            android:layout_alignParentRight="true"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:text="Deposit"
+            android:background="@drawable/button"
+            android:textColor="#FFFFFF"/>
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

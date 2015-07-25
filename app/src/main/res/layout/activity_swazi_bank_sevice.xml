@@ -1,0 +1,31 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bootstrap="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Please Select Type Of Service"
+        android:textSize="24sp"
+        android:padding="10dp"/>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true">
+
+        <Button
+            android:id="@+id/swaziBankServices"
+            android:layout_marginTop="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_width="200dp"
+            android:layout_height="50dp"
+            android:text="Swazi Bank"
+            android:background="@drawable/button"
+            android:layout_margin="10dp"
+            android:textColor="#FFFFFF"/>
+    </RelativeLayout>
+</RelativeLayout>

@@ -1,0 +1,9 @@
+#!/usr/bin/env node
+var debug = require('debug')('Ummo');
+var app = require('../qServer');
+
+//app.set('port', process.env.PORT || 3003);
+
+/*var qServer = app.listen(app.get('port'), function() {
+	debug('Q-engine listening on port' + qServer.address().port);
+});*/ 

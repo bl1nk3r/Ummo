@@ -1,0 +1,44 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 22
+    buildToolsVersion "22.0.1"
+    defaultConfig {
+        applicationId "com.example.barnes.ummoq"
+        minSdkVersion 'API 15: Android 2.3.3 (Gingerbread)'
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    productFlavors {
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile project(':library')
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.android.support:appcompat-v7:22.2.0'
+    compile 'com.oguzdev:CircularFloatingActionMenu:1.0.2'
+    compile 'cn.pedant.sweetalert:library:1.3'
+    compile 'com.github.chenupt.android:multiplemodel:1.1.0@aar'
+    compile 'de.greenrobot:eventbus:2.4.0'
+    compile 'com.google.guava:guava:18.0'
+    compile 'com.jpardogo.materialtabstrip:library:1.0.8'
+    compile 'com.github.shell-software:fab:1.0.5'
+    compile 'com.jpardogo.materialtabstrip:library:1.0.8'
+    compile 'com.github.shell-software:fab:1.0.5'
+    compile 'com.navercorp.pulltorefresh:library:3.2.0@aar'
+    repositories {
+        mavenCentral()
+    }
+}
