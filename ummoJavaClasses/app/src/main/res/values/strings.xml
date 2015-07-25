@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">umoClasses</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_tabs">tabs</string>
+
+    <string name="title_section1">Section 1</string>
+    <string name="title_section2">Section 2</string>
+    <string name="PREF_USER_REGISTERED">user_registered</string>
+    <string name="title_section3">Section 3</string>
+    <string name="SERVER_URL">http://10.0.0.12:3000</string>
+    <string name="PREF_USER_ID">user_id</string>
+    <string name="title_activity_register">Register</string>
+</resources>
