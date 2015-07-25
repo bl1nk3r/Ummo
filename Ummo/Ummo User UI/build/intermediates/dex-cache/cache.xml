@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/home/barnes/Ummo 1.0/UmmoQ/app/build/intermediates/exploded-aar/cn.pedant.sweetalert/library/1.3/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="0c3529d9491be892952749d252ae1defa9b1f937">
+        <dex dex="/home/barnes/Ummo 1.0/UmmoQ/app/build/intermediates/pre-dexed/debug/classes-3caab9240c88e0c6512209dd64f6c8f9f08da2cf.jar" />
+    </item>
+    <item
+        jar="/home/barnes/Ummo 1.0/UmmoQ/app/build/intermediates/exploded-aar/com.pnikosis/materialish-progress/1.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="57487745ce450899f9f250d5ae5c092a682cd041">
+        <dex dex="/home/barnes/Ummo 1.0/UmmoQ/app/build/intermediates/pre-dexed/debug/classes-8ada1c8a431479185fb8bca37e0beb57f7917c66.jar" />
+    </item>
+    <item
+        jar="/home/barnes/Ummo 1.0/UmmoQ/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
+        <dex dex="/home/barnes/Ummo 1.0/UmmoQ/app/build/intermediates/pre-dexed/debug/classes-28e4fde3e846a39a2ac2f73a9509b57ff842d593.jar" />
+    </item>
+    <item
+        jar="/home/barnes/.gradle/caches/modules-2/files-2.1/com.google.guava/guava/18.0/cce0823396aa693798f8882e64213b1772032b09/guava-18.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="cce0823396aa693798f8882e64213b1772032b09">
+        <dex dex="/home/barnes/Ummo 1.0/UmmoQ/app/build/intermediates/pre-dexed/debug/guava-18.0-bad4d996ad1856df751d2bc97569377788b2b2b5.jar" />
+    </item>
+    <item
+        jar="/home/barnes/Ummo 1.0/UmmoQ/app/build/intermediates/exploded-aar/com.android.support/support-v4/22.2.0/jars/libs/internal_impl-22.2.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
+        <dex dex="/home/barnes/Ummo 1.0/UmmoQ/app/build/intermediates/pre-dexed/debug/internal_impl-22.2.0-0a1fa0fe6934abffaa0b3b8eb9d114efedbe16e8.jar" />
+    </item>
+    <item
+        jar="/home/barnes/Ummo 1.0/UmmoQ/app/build/intermediates/exploded-aar/com.github.chenupt.android/multiplemodel/1.1.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="4d54bca94a9d57520efa2934a9eb57a4cae3f889">
+        <dex dex="/home/barnes/Ummo 1.0/UmmoQ/app/build/intermediates/pre-dexed/debug/classes-ad39c50ff30185cd60b4b3a5cb591e65997e13fb.jar" />
+    </item>
+    <item
+        jar="/home/barnes/Ummo 1.0/UmmoQ/app/build/intermediates/exploded-aar/com.oguzdev/CircularFloatingActionMenu/1.0.2/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="607d961caf1a59b6e782724654c1f3229e036c20">
+        <dex dex="/home/barnes/Ummo 1.0/UmmoQ/app/build/intermediates/pre-dexed/debug/classes-31211b9ac614b4fb288c7ce96cb46c5ca3e06d15.jar" />
+    </item>
+    <item
+        jar="/home/barnes/Ummo 1.0/UmmoQ/app/build/intermediates/exploded-aar/com.github.shell-software/fab/1.0.5/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="21b7e1533326a38d45ea24d04c6acfcbf8ea33af">
+        <dex dex="/home/barnes/Ummo 1.0/UmmoQ/app/build/intermediates/pre-dexed/debug/classes-7c791a8a66163a09cc086f963548a2253d9bee2c.jar" />
+    </item>
+    <item
+        jar="/home/barnes/.gradle/caches/modules-2/files-2.1/de.greenrobot/eventbus/2.4.0/ddd166d01b3158d1c00576d29f7ed15c030df719/eventbus-2.4.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="ddd166d01b3158d1c00576d29f7ed15c030df719">
+        <dex dex="/home/barnes/Ummo 1.0/UmmoQ/app/build/intermediates/pre-dexed/debug/eventbus-2.4.0-bf4a815f3cff44704d62dd29aace01bd7e3dad13.jar" />
+    </item>
+    <item
+        jar="/home/barnes/Ummo 1.0/UmmoQ/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/22.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="73753982da6bde518f3a4c6b372749981d14d1a0">
+        <dex dex="/home/barnes/Ummo 1.0/UmmoQ/app/build/intermediates/pre-dexed/debug/classes-9f519495cec1bbaa9082a3b4ba3202a5a8eefbbf.jar" />
+    </item>
+    <item
+        jar="/home/barnes/Ummo 1.0/UmmoQ/app/build/intermediates/exploded-aar/com.jpardogo.materialtabstrip/library/1.0.8/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="e724073d032731be77fad0f993e2970fb4429e3a">
+        <dex dex="/home/barnes/Ummo 1.0/UmmoQ/app/build/intermediates/pre-dexed/debug/classes-261d464cf5e2e9839bd20c96b7cf9fc7d5270894.jar" />
+    </item>
+    <item
+        jar="/home/barnes/Ummo 1.0/UmmoQ/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/21.0.3/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="4b8945fc23a7461c6fdde15753456d64b0a9358b">
+        <dex dex="/home/barnes/Ummo 1.0/UmmoQ/app/build/intermediates/pre-dexed/debug/classes-33c8f74df76783c3fa87819b92dc607432466b69.jar" />
+    </item>
+    <item
+        jar="/home/barnes/Ummo 1.0/UmmoQ/app/build/intermediates/exploded-aar/UmmoQ/library/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="92bb9ed56fba4bf01438810e85571965f23d01bd">
+        <dex dex="/home/barnes/Ummo 1.0/UmmoQ/app/build/intermediates/pre-dexed/debug/classes-b4d6c7329d47b0a61f36078cf50548a28c85871a.jar" />
+    </item>
+    <item
+        jar="/home/barnes/android-sdk/android-sdk-linux/extras/android/m2repository/com/android/support/support-annotations/22.2.0/support-annotations-22.2.0.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="66b42a1f3eb7676070b7ef7f14b603483aecbee1">
+        <dex dex="/home/barnes/Ummo 1.0/UmmoQ/app/build/intermediates/pre-dexed/debug/support-annotations-22.2.0-54077c29a30ee8c384353f58f2bd76db029a0d7a.jar" />
+    </item>
+    <item
+        jar="/home/barnes/Ummo 1.0/UmmoQ/app/build/intermediates/exploded-aar/com.navercorp.pulltorefresh/library/3.2.0/jars/classes.jar"
+        jumboMode="false"
+        revision="22.0.1"
+        sha1="e81a90331089d2f9018e493b0fdd6bab92fae40c">
+        <dex dex="/home/barnes/Ummo 1.0/UmmoQ/app/build/intermediates/pre-dexed/debug/classes-0822a7474c58da2e70316bd1db800e2b196ead29.jar" />
+    </item>
+
+</items>
