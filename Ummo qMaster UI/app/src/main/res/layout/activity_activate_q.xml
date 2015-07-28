@@ -1,0 +1,44 @@
+<RelativeLayout
+    android:id="@+id/activateQRL"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="#dedede"
+    tools:context="com.ummo.blinker.ummoqmasternavsample.actions.ActivateQ">
+
+
+
+
+    <TextView
+        android:id="@+id/tvSelectQ"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="@string/tapQ"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/firebaseTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Firebase"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"/>
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/activateQBT"
+        android:layout_marginTop="41dp"
+        android:layout_below="@+id/firebaseTV"
+        android:layout_centerHorizontal="true"
+        android:background="#6ac9e0" />
+
+</RelativeLayout>

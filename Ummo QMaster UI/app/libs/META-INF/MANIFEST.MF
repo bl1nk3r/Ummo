@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Implementation-Vendor: Firebase
+Implementation-Title: Firebase Android Client Library
+Implementation-Version: 2.3.1
+Implementation-Vendor-Id: com.firebase
+Built-By: jenkins
+Build-Jdk: 1.7.0_51
+Specification-Vendor: Firebase
+Specification-Title: Firebase Android Client Library
+Created-By: Apache Maven 3.0.5
+Specification-Version: 2.3.1
+Archiver-Version: Plexus Archiver
+
