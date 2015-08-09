@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/expandable_view_clickable_content"
+        android:layout_width="match_parent"
+        android:layout_height="?android:listPreferredItemHeight">
+
+        <TextView
+            android:id="@+id/expandable_view_title"
+            style="@style/ExpandableView_TextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="5dp"/>
+
+        <ImageView
+            android:id="@+id/expandable_view_right_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="5dp"
+            android:src="@drawable/ic_expandable_view_plus"/>
+
+        <View
+            android:id="@+id/expandable_view_separator"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_alignParentBottom="true"
+            android:background="@android:color/darker_gray"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/expandable_view_content_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/expandable_view_clickable_content"
+        android:orientation="vertical">
+    </LinearLayout>
+</merge>
+<!-- From: file:/home/blinker/Desktop/Ummo/Ummo%20User%20UI/expandableview/src/main/res/layout/expandable_view.xml -->

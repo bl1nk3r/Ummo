@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.ummo.blinker.ummoqmasternavsample.AccountFragment"
+    tools:context="com.ummo.blinker.ummoqmaster.AccountFragment"
     android:background="#dedede"
     android:clickable="false"
     android:id="@+id/qMasterAccFrag">

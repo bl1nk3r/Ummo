@@ -1,39 +1,39 @@
 {
-	"name": "Ummo",
-	"version": "0.0.1",
-	"authors" :	[
-	{
-		"name": "Sihle Mbhamali",
-		"email": "@#$%^&*",
-		"url": "www.qwerty"
-	},
-	{
-		"name": "Jose Rego",
-		"email": "jay.rego.14@gmail.com",
-		"url": "https://github.com/bl1nk3r"		
-	}
-],
-	"private": true,
-	"main": "qServer.js",
-	"config": {
-		"port": "3003"
-	},
-	"dependencies": {
-		"express": "latest",
-		"body-parser": "latest",
-		"nodemon": "latest",
-		"mongoose": "latest"
-	},
-	"scripts": {
-		"start": "nodemon ./bin/www"
-		
-	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/bl1nk3r/Ummo.git"
-	},
-	"engines": {
-		"node": "v0.10.39",
-		"npm": "1.4.28"
-	}
+  "name": "Ummo",
+  "version": "0.0.1",
+  "authors": [
+    {
+      "name": "Sihle Mbhamali",
+      "email": "@#$%^&*",
+      "url": "www.qwerty"
+    },
+    {
+      "name": "Jose Rego",
+      "email": "jay.rego.14@gmail.com",
+      "url": "https://github.com/bl1nk3r"
+    }
+  ],
+  "private": true,
+  "main": "qServer.js",
+  "config": {
+    "port": "3003"
+  },
+  "dependencies": {
+    "body-parser": "latest",
+    "express": "latest",
+    "firebase": "^2.2.7",
+    "mongoose": "latest",
+    "nodemon": "latest"
+  },
+  "scripts": {
+    "start": "nodemon ./bin/www"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bl1nk3r/Ummo.git"
+  },
+  "engines": {
+    "node": "v0.10.39",
+    "npm": "1.4.28"
+  }
 }

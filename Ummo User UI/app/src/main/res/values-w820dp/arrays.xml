@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="android_version_names">
+    </string-array>
+
+    <string-array name="android_version_numbers">
+        <item>Deposit</item>
+        <item>Foreign Exchange</item>
+        <item>Enquires</item>
+        <item>Withdrawals</item>
+    </string-array>
+
+    <string-array name="swazibank">
+        <item>Deposit</item>
+        <item>Foreign Exchange</item>
+        <item>Enquires</item>
+        <item>Withdrawals</item>
+    </string-array>
+
+    <string-array name="nedbank">
+        <item>Deposit</item>
+        <item>Foreign Exchange</item>
+        <item>Enquires</item>
+        <item>Withdrawals</item>
+    </string-array>
+
+    <string-array name="sra">
+        <item>Deposit</item>
+        <item>Foreign Exchange</item>
+        <item>Enquires</item>
+        <item>Withdrawals</item>
+    </string-array>
+
+
+</resources>

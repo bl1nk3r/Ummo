@@ -1,11 +1,15 @@
 <resources>
-    <string name="app_name">UmmoQ</string>
+    <string name="app_name">Ummo</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
-    <string name="depositQ">Deposits Q</string>
     <string name="title_activity_qs">Qs</string>
+    <string name="depositQ">Deposits Q</string>
 
-<!-- TODO: Remove or change this placeholder text -->
+    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_splash_screen">SplashScreen</string>
+
+    <string name="android_names">Android Version Names</string>
+    <string name="android_codes">Android Version Codes</string>
 </resources>
