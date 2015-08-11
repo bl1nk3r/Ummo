@@ -53,8 +53,9 @@ function leaveQ(user,vq) {
 }
 
 function joinedQ(user,vq){
-	var fireB = new Firebase('https://ummo.firebaseio.com/qMaster/users/'+vq+"/managedQ/qErs"+user);
+	var fireB = new Firebase('https://ummo.firebaseio.com/qMaster/users/'+vq+"/managedQ/qErs/"+user);
 	fireB.once("value",function (snap) {
+		console.log("got Value");
 		console.log(snap.val());
 		return;
 	})
