@@ -19,7 +19,6 @@ public class UmmoQ {
     }
 
     public UmmoQ(){
-
     }
 
     public String getName(){

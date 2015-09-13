@@ -12,7 +12,6 @@ import com.expandable.view.ExpandableView;
 public class ExpandableList_MainActivity extends AppCompatActivity
 {
     private ExpandableView middleExpandableView;
-
     private ExpandableView expandableViewLevel1;
     private ExpandableView expandableViewLevel2;
     private ExpandableView expandableViewLevel3;
