@@ -1,0 +1,30 @@
+Firebase = require("firebase");
+function QEr(user,callback){
+	var fireB = new Firebase('https://ummo.firebaseio.com/qEr/users/'+user.cellNum);
+	
+	fireB.set(user);
+}
+
+function joinQ(user,vq,callback) {
+	
+	var fireB = new Firebase('https://ummo.firebaseio.com/qMaster/users/'+vq+'/managedQ/qErs');
+	
+	fireB.once("value",function (snap) {
+		if (snap.hasChild(user)) {
+			console.log("Already Registered");
+		}
+		else {
+		fireB.child(user).set(snap.numChildren());
+	}
+	})
+}
+
+function leaveQ(user,vq) {
+		var fireB = new Firebase('https://ummo.firebaseio.com/ummoQ/ummoqs'+vq);
+	
+	fireB.push(user);
+	}
+	
+
+exports.QEr=QEr;
+exports.joinQ=joinQ;

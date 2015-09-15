@@ -16,7 +16,7 @@
   "private": true,
   "main": "qServer.js",
   "config": {
-    "port": "3003"
+    "port": "3000"
   },
   "dependencies": {
     "body-parser": "latest",
@@ -26,7 +26,9 @@
     "nodemon": "latest"
   },
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "nodemon ./bin/www",
+    "monitor": "nodemon app.js",
+    "deploy": "gcloud preview app deploy app.yml"
   },
   "repository": {
     "type": "git",
