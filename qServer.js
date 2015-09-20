@@ -114,10 +114,11 @@ app.post('/user/joinQ', function (req, res){
 });
 //CHECKED!!!
 app.post('/user/availQs', function (req, res){
-    qEr.getQs(function (param){
-        console.log("Available Qs are: '" + param + "'...")
+    qEr.allQs(function(param){
+    console.log("Available Qs are: '" + param + "'...")
         res.send(param);
-    })
+    console.log(param);
+    });
 });
 
 app.post('/user/leaveQ', function (req, res){

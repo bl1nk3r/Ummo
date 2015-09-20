@@ -84,6 +84,19 @@ function joinedQ(user,callback){
 	})
 }
 
+function allQs(callback){
+	var qs = Array();
+	var fireB = new Firebase('https://ummo.firebaseio.com/qMaster/users/');
+	fireB.once("value",function (snap) {
+		for(var i in snap.val()){
+			qs.push(snap.val()[i]);
+		}
+		
+		callback(qs);
+	});
+}
+
 exports.joinedQ=joinedQ;
 exports.QEr=QEr;
 exports.joinQ=joinQ;
+exports.allQs = allQs;
