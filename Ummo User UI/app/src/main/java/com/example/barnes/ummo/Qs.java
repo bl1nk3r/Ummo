@@ -3,23 +3,23 @@ package com.example.barnes.ummo;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.astuetz.PagerSlidingTabStrip;
 import com.example.barnes.ummo.db.Db;
-import com.example.barnes.ummo.fragments.Qfragment;
+import com.example.barnes.ummo.fragment.Qfragment;
 import com.google.common.collect.Lists;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 import github.chenupt.multiplemodel.viewpager.ModelPagerAdapter;
 import github.chenupt.multiplemodel.viewpager.PagerModelManager;
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
-public class Qs extends ActionBarActivity {
+public class Qs extends AppCompatActivity {
 
     private ViewPager viewPager;
     private ModelPagerAdapter adapter;
@@ -30,15 +30,16 @@ public class Qs extends ActionBarActivity {
     public List<String> qTabsList = null;
     public List<String> qTabsNames = null;
     int numTabs;
-    String tabNames = null;
-    String tabName = null;
-    Collection collTabList;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.q);
-
+        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
+                        .setDefaultFontPath("fonts/Ubuntu-C.ttf")
+                        .setFontAttrId(R.attr.fontPath)
+                        .build()
+        );
         db = new Db(this);
         db.open();
         qTabsNames = db.getAllQs();
@@ -58,11 +59,6 @@ public class Qs extends ActionBarActivity {
         //pagerSlidingTabStrip.
     }
 
-    private void setTitles(String qtitle)
-    {
-        title_list.add(qtitle);
-    }
-
     private List<String> getTitles()
     {
         if (qTabsNames.size() == 2)
@@ -79,12 +75,6 @@ public class Qs extends ActionBarActivity {
             return Lists.newArrayList(qTabsNames.get(0),qTabsNames.get(1),qTabsNames.get(2),qTabsNames.get(3),qTabsNames.get(4),qTabsNames.get(5),qTabsNames.get(6));
         else
             return Lists.newArrayList(qTabsNames.get(0));
-    }
-
-    private void setFragments()
-    {
-        Fragment listFragment = new Qfragment();
-        fragment_list.add(listFragment);
     }
 
     private List<Fragment> getFragments(int ntabs)

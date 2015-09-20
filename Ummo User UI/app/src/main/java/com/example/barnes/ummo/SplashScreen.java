@@ -1,27 +1,44 @@
 package com.example.barnes.ummo;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.barnes.ummo.fragment.SelectableTreeFragment;
+
+import java.util.LinkedHashMap;
+
+import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
+
 /**
- * Created by barnes on 7/26/15.
+ * Created by barnes on 8/6/15.
  */
-public class SplashScreen extends AppCompatActivity
+public class SplashScreen extends Activity
 {
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
+                        .setDefaultFontPath("fonts/Ubuntu-C.ttf")
+                        .setFontAttrId(R.attr.fontPath)
+                        .build()
+        );
+
+        final LinkedHashMap<String, Class<?>> listItems = new LinkedHashMap<>();
+        listItems.put("Selectable Nodes", SelectableTreeFragment.class);
 
         new Handler().postDelayed(new Thread() {
             @Override
             public void run() {
-                Intent mainMenu = new Intent(SplashScreen.this, ExpandableList_MainActivity.class);
-                SplashScreen.this.startActivity(mainMenu);
+                Class<?> clazz = listItems.values().toArray(new Class<?>[]{})[0];
+                Intent i = new Intent(SplashScreen.this, SingleFragmentActivity.class);
+                i.putExtra(SingleFragmentActivity.FRAGMENT_PARAM, clazz);
+                SplashScreen.this.startActivity(i);
                 SplashScreen.this.finish();
                 overridePendingTransition(R.layout.fadein, R.layout.fadeout);
             }
@@ -45,7 +62,6 @@ public class SplashScreen extends AppCompatActivity
         if (id == R.id.action_settings) {
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 }

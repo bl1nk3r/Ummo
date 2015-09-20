@@ -22,4 +22,6 @@
     <color name="brown">#5d4037</color>
     <color name="shadeOfWhite">#EEEEEE</color>
     <color name="appleWhite">#FFD6ECFF</color>
+    <color name="text_lgray">#808080</color>
+    <color name="text_gray">#323232</color>
 </resources>
