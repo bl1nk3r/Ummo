@@ -121,6 +121,11 @@ app.post('/user/joinedQs', function (req, res){
     });
 });
 
+app.post('/', function(req, res) {
+    console.log("Hello World");
+  res.status(200).send('listening for queues on port 3000!');
+});
+
 
 var server = app.listen(3000, function(){
     console.log("listening for Q requests on port 3000!");
