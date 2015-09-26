@@ -1,87 +1,102 @@
-/**
- * Created by sihle on 2015/07/02.
- */
+Firebase = require("firebase");
+function QEr(user,callback){
+	var fireB = new Firebase('https://ummo.firebaseio.com/qEr/users/'+user.cellNum);
 
-/**
- * Edited by blinker on 2015/07/08
- */
-
-var mongoose = require('mongoose'),
-    /*mongojs = require('mongojs')
-    ,host = "127.0.0.1"
-    ,port = "27017"
-    ,db = mongojs("Ummo", ["qEr", "qErDelT", "qMaster", "qRev", "qState", "vQ"]);*/
-ummoQ = require("./ummoQue");
-
-mongoose.createConnection('mongodb://localhost/Ummo');
-
-//Define Mongoose Schema for User
-var UserSchema = new mongoose.Schema({
-    cellNum:String,
-    location: {lat:Number,lng:Number},
-    qAlias: String,
-    updated_at: { type: Date, default: Date.now }
-}); 
-
-var qEr = mongoose.model('qEr', UserSchema);
-
-//Create new user using only cellnumber and alias and insert into qEr collection 
-function newUser(cellnum, alias, callback){
-    qEr.find({cellNum: cellnum}, function (err, res){
-        if(err){
-            console.log("Error: " + err);
-        }
- 
-        else{
-            if(!(res.length > 0)) {
-                qEr.create({cellNum: cellnum, qAlias: alias }, function (err, result) {
-                    if (err) {
-                        console.log(err.toString());
-                    }
-
-                    else {
-                        callback(result);
-                    }
-                });
-            }
-
-            else{
-                console.log("Cell Number: " + cellnum + " already registered!");
-                callback(res);
-            }
-
-        }
-    });
+	fireB.set(user);
 }
 
-//Allow user to join queue
-function joinQ(id,qid,callback){
-    ummoQ.enque(id,qid,callback);
+function joinQ(user,vq,callback) {
+
+	var fireB = new Firebase('https://ummo.firebaseio.com/qMaster/users/'+vq+'/managedQ/qErs');
+	fireB.once("value",function (snap) {
+		if (snap.child(user).exists()) { //Checks if user hasnt joined q yet
+			console.log("Already Registered");
+		}
+		else {
+		fireB.child(user).set(snap.numChildren()); //User has not Joined
+	}
+	})
+
+	var myFire = new Firebase('https://ummo.firebaseio.com/qEr/users/'+user+'/joinedQs')
+
+	myFire.once("value",function (snap) {
+			myFire.child(snap.numChildren()).set(vq);
+	});
 }
 
-//Call function for leaving queue (get deQ'd)
-function leaveQ(id,qid,callback){ 
-    ummoQ.dqUser(id,qid,callback);
+function update(user,callback) {
+	var fireB = new Firebase('https://ummo.firebaseio.com/qMaster/users/'+qMaster.cellNum);
+	fireB.on("value",function (snapshot) {callback(snapshot.val())},function (err) {callback(err)});
+	}
+
+function leaveQ(user,vq) {
+
+	var fireB = new Firebase('https://ummo.firebaseio.com/qMaster/users/'+vq+"/managedQ/qErs");
+	fireB.once("value",function (snapshot) {
+	 var pos=snapshot.child(user).val();
+
+	 snapshot.forEach(function(childSnapshot) {
+    var key = childSnapshot.key();
+    var childData = childSnapshot.val();
+    if (childData>pos) {
+    	fireB.child(key).set(childData-1);
+    }
+
+    fireB.child(user).set(null);
+  });
+
+
+
+	})
+
+	var myFire = new Firebase('https://ummo.firebaseio.com/qEr/users/'+user+'/joinedQs')
+
+	myFire.once("value",function (snap) {
+			myFire.child(snap.numChildren()).set(null);
+	});
 }
 
-//Retrieve Q categories to be selected
-function getCategories(callbak){
+function joinedQ(user,callback){
+	var joinedQs = Array();
+	var fireB = new Firebase('https://ummo.firebaseio.com/qMaster/users/');
+	fireB.once("value",function (snap) {
+		console.log("got Value");
+		var arr = snap.val()
+		for (var i in  arr) {
+			console.log(arr[i].cellNum);
+			if (arr[i].cellNum) {
+				if(fireB.child(arr[i].cellNum).child("managedQ")){
+					if (fireB.child(arr[i].cellNum).child("managedQ").child("qErs")) {
+						if (snap.child(arr[i].cellNum).child("managedQ").child("qErs").child(user).exists()) {
+								joinedQs.push(arr[i].managedQ);
+						}
+					}
+				}
+			}
 
+
+
+		}
+		//var obj={data:joinendQs}
+		callback({joinedVQs:joinedQs});
+		//console.log(obj);
+		return;
+	})
 }
 
-//Get all Qs available
-function getQs(callback){
-    ummoQ.getall(callback);
+function allQs(callback){
+	var qs = Array();
+	var fireB = new Firebase('https://ummo.firebaseio.com/qMaster/users/');
+	fireB.once("value",function (snap) {
+		for(var i in snap.val()){
+			qs.push(snap.val()[i]);
+		}
+		
+		callback(qs);
+	});
 }
 
-//Get all Qs joined by qEr
-function getJoinedQs(id,callback){
-    ummoQ.getJoinedById(id,callback);
-}
-
-exports.newUser=newUser;
+exports.joinedQ=joinedQ;
+exports.QEr=QEr;
 exports.joinQ=joinQ;
-exports.leaveQ=leaveQ;
-exports.getCategories = getCategories;
-exports.getQs=getQs;
-exports.getJoinedQs=getJoinedQs;
+exports.allQs = allQs;

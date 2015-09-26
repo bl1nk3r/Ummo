@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">NetWorkLib</string>
+    <string name="SERVER_URL">127.0.0.1:3000/</string>
+    <string name="PREF_USER_REGISTERED">user_registered</string>
+    <string name="PREF_USER_CELLNUMBER">user_registered</string>
+    <string name="PREF_USER_NAME">user_registered</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+</resources>

@@ -1,149 +1,76 @@
-/**
- * Created by sihle on 2015/07/02. 
- */
+function register(qMaster,callback) {
+	var fireB = new Firebase('https://ummo.firebaseio.com/qMaster/users/'+qMaster.cellNum);
+	fireB.set(qMaster);
+}
 
- /**
- * Edited by blinker on 2015/07/08
- */
+function craeteQ(qMaster,vQ,callback){
+	var fireB = new Firebase('https://ummo.firebaseio.com/qMaster/users/'+qMaster.cellNum+"/managedQ");
+	fireB.set(vQ);
 
-/* prompt> */ 
-var mongoose = require('mongoose');
-ummoQ = require("./ummoQue");
+}
 
-/* prompt> */ 
-mongoose.createConnection('mongodb://localhost/ummo');
+function destroyQ(qMaster,callback) {
+	var fireB = new Firebase('https://ummo.firebaseio.com/qMaster/users/'+qMaster.cellNum+"/managedQ");
+	fireB.set(null);
 
-/* prompt> */ 
-var QMasterSchema = new mongoose.Schema({
-    qService: String,
-    cellNum:String,
-    location:{lat:Number,lng:Number},
-    fullName: String,
-    updated_at: { type: Date, default: Date.now },
-    managedQ:[]
+}
+
+function dQUser(qMaster,user) {
+	console.log(user);
+	var fireB = new Firebase('https://ummo.firebaseio.com/qMaster/users/'+qMaster.cellNum+"/managedQ/qErs");
+	fireB.once("value",function (snapshot) {
+		if(fireB.child(user)){
+		var ttdq=new Firebase('https://ummo.firebaseio.com/qMaster/users/'+qMaster.cellNum+"/managedQ/ttdq");
+		var	dqTime = new Firebase('https://ummo.firebaseio.com/qMaster/users/'+qMaster.cellNum+"/managedQ/");
+		dqTime.once("value",function(snap){
+			if (snap.child("dqTime").exists()) {
+				console.log(snap.child("dqTime").val());
+				dqTime.child("ttdq").set(Date.now()-snap.child("dqTime").val());
+			}
+				dqTime.child("dqTime").set(Date.now());
+
+		})
+
+	 var pos=snapshot.child(user).val();
+	 snapshot.forEach(function(childSnapshot) {
+    var key = childSnapshot.key();
+    var childData = childSnapshot.val();
+    if (childData>pos) {
+    	fireB.child(key).set(childData-1);
+    }
+
+    fireB.child(user).set(null);
+  });
+}
 });
-
-var qMaster = mongoose.model('qMaster', QMasterSchema);
-
-//qMaster creates a new Q and adds it to managedQs
-function createQ(hours,qname,qlimit,qreq,qlocation,id,callback){
-    var qOptions = {};
-    qOptions.qFrame=hours;
-    qOptions.qName = qname;
-    qOptions.qLimit = qlimit;
-    qOptions.qReq = qreq;
-    qOptions.qlocation=qlocation;
-
-    ummoQ.newQue(qOptions, function (qid){
-        qMaster.update({ _id: mongoose.Types.ObjectId(id) }, { $push: { managedQ:qid } }, function (err,res){
-                if(err) console.log(err.toString());
-                else{
-                    console.log("Q successfully created and managed: ");
-                    console.log(res);
-                    callback(res);
-                }
-            }
-        )
-
-    });
 }
 
-//qMaster gets registered using service provided + cellNum + fullname
-function register(service, cellnum, name, callback){
-    qMaster.find({cellNum: cellnum}, function (err, res){
-        if(err){
-            console.log("Error" + err.toString());
-        }
+function moveUser(user,vQ) {
+}
 
-        else{
-
-            if(!(res.length>0)) {
-                qMaster.create({qService: service, cellNum: cellnum, fullName: name}, function (err, result) {
-                    if (err) {
-                        console.log(err.toString());
-                    }
-
-                    else {
-                        console.log("New qMaster registered!");
-                        callback(result);
-                    }
-                });
-            }
-
-            else{
-                console.log("Already Registered" + cellnum);
-                callback(res);
-            }
-
-        }
-    });
+function getFeedbacks(vQ){
 
 }
 
-//Destroys a Q, using it's qId after checking it's existance
-function destroyQ(id, qid, callback){
-
-    qMaster.update({_id: mongoose.Types.ObjectId(id)},{$pull: {managedQ: qid}}, function (err,result){
-        if(err){
-            console.log("Error:" + err.toString());
-        }
-
-        else{
-            ummoQ.delQ(qid,function(){});
-            callback(result);
-        }
-    });
+function getMyques(qMaster) {
 }
 
-//Destroys all Qs
-function destroyAllQs(id, callback) {
-    qMaster.find({_id: mongoose.Types.ObjectId(id)}, function (err,res){
-        if(!(err)){
-            for(var i = 0; i<res[0].managedQ.length; i++){
-                ummoQ.delQ(res[0].managedQ[i], function(){});
-            }
-        }
-    });
-
-    qMaster.update({_id: mongoose.Types.ObjectId(id)}, {$pull: {managedQ:{}}}, function (err,result) {
-        if(err){
-            console.log("Error: " + err.toString());
-        }
-
-        else{
-            console.log("All Qs terminated!");
-            callback(result);
-        }
-    });
-}
-
-//DeQ a qEr using their _id
-function dQUser(uid,qui,callback){
-    ummoQ.dqUser(uid,qui);
-}
-
-//This will manage the Q by moving a qEr from one pos to another (pending)
-function moveUser(callback){
+function destroyAllQs() {
 
 }
 
-//Retrieve all qMaster Qs
-function getMyques(id, callback){
-    qMaster.find({_id: mongoose.Types.ObjectId(id)}, function (err,res){
-        ummoQ.getByMaster(res[0].managedQ, callback);
-    })
-}
+function update(qMaster,callback) {
+	var fireB = new Firebase('https://ummo.firebaseio.com/qMaster/users/'+qMaster.cellNum);
+	fireB.on("value",function (snapshot) {callback(snapshot.val())},function (err) {callback(err)});
+	}
 
-//This will enable qMaster to view qEr feedback (pending)
-function getFeedbacks(callback){
 
-}
-
-exports.createQ=createQ;
+exports.createQ=craeteQ;
 exports.register=register;
 exports.destroyQ=destroyQ;
-exports.dqUser=dQUser;
+exports.dQUser=dQUser;
 exports.moveUser=moveUser;
 exports.getFeedbacks=getFeedbacks;
 exports.getMyques = getMyques;
 exports.destroyAllQs=destroyAllQs;
+exports.update=update;
