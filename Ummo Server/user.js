@@ -4,6 +4,30 @@ function QEr(user,callback){
 
 	fireB.set(user);
 }
+function clenQs(cell,callback){
+	var fireBQs = new Firebase('https://ummo.firebaseio.com/qEr/users/'+cell+"/joinedQs");
+	fireBQs.once("value",function (snap) {
+		var arr = snap.val();
+		callback(snap.val());
+		for (var i = 0; i < arr.length; i++) {
+			var fireB = new Firebase('https://ummo.firebaseio.com/qMaster/users/'+arr[i]);
+			fireB.once("value",function(snapshot){
+				if(snapshot.hasChild('/managedQ/qErs/'+cell)){
+					console.log("Exixts");
+				}
+
+				else {
+					console.log(snapshot.key()+"Has to be cleaned!");
+					snap.forEach(function(childSnapshot) {
+							var childData = childSnapshot.val();
+							console.log(childData);
+					});
+				}
+			})
+		}
+		console.log(snap.val());
+	});
+}
 
 function joinQ(user,vq,callback) {
 
@@ -107,8 +131,9 @@ function allQsInProvider(provider,callback){
 
 function getCategories(callback){
 		var fireB = new Firebase('https://ummo.firebaseio.com/Categories');
+		clenQs("76583264",callback);
 		fireB.once("value",function(snap){
-			callback(snap.val());
+			//callback(snap.val());
 		})
 }
 
