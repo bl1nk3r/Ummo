@@ -1,6 +1,11 @@
 {
   "name": "Ummo",
-  "version": "0.0.1",
+  "version": "0.0.1",  
+   "scripts": {
+    "start": "nodejs qServer.js",
+    "monitor": "nodemon qServer.js",
+    "deploy": "gcloud preview app deploy app.yaml"
+  },
   "authors": [
     {
       "name": "Sihle Mbhamali",
@@ -16,20 +21,20 @@
   "private": true,
   "main": "qServer.js",
   "config": {
-    "port": "3000"
+    "port": "8080"
   },
   "dependencies": {
     "body-parser": "latest",
     "express": "latest",
     "firebase": "^2.2.7",
     "mongoose": "latest",
-    "nodemon": "latest"
+    "nodemon": "latest",
+    "firebase-tools": "latest"
   },
   "scripts": {
-    "start": "nodemon ./bin/www",
-    "monitor": "nodemon app.js",
-    "deploy": "gcloud preview app deploy app.yml"
-  },
+    "start": "node ./qServer.js",
+    "monitor": "nodemon qServer.js"
+     },
   "repository": {
     "type": "git",
     "url": "https://github.com/bl1nk3r/Ummo.git"

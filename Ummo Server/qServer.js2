@@ -112,15 +112,6 @@ app.post('/user/joinQ', function (req, res){
     });
 
 });
-//CHECKED!!!
-app.post('/user/availQs', function (req, res){
-    qEr.allQs(function(param){
-    console.log("Available Qs are: '" + param + "'...")
-        res.send(param);
-    console.log(param);
-    });
-});
-
 
 app.post('/user/categories', function (req, res){
     var uid = req.body.uid
@@ -130,6 +121,14 @@ app.post('/user/categories', function (req, res){
         res.send(param);
     });
 
+});
+//CHECKED!!!
+app.post('/user/availQs', function (req, res){
+    qEr.allQs(function(param){
+    console.log("Available Qs are: '" + param + "'...")
+        res.send(param);
+    console.log(param);
+    });
 });
 
 app.post('/user/leaveQ', function (req, res){
@@ -152,7 +151,7 @@ app.post('/user/joinedQs', function (req, res){
 });
 
 
-var server = app.listen(8080, function(){
+var server = app.listen(3000, function(){
     console.log("listening for Q requests on port 3000!");
 
 });

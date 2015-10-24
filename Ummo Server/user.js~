@@ -84,36 +84,23 @@ function joinedQ(user,callback){
 	})
 }
 
-function allQsInProvider(provider,callback){
-	var fireB = new Firebase('https://ummo.firebaseio.com/qMaster/users');
-	fireB.once("value",function(snap){
-		var qs = Array();
+function allQs(callback){
+	var qs = Array();
+	var fireB = new Firebase('https://ummo.firebaseio.com/qServices/qServiceCategory');
+	fireB.once("value",function (snap) {
 		for(var i in snap.val()){
-			console.log(snap.val());
-			if(snap.val()[i]){
-			if (snap.val()[i].managedQ) {
-
-
-			if(snap.val[i].managedQ.Provider){
-			if(snap.val()[i].managedQ.Provider==provider){
-				qs.push(snap.val());
+			for(var j in snap.val()[i].Provider){
+				console.log(snap.val()[i].Provieder[j]);
 			}
+			qs.push(snap.val()[i]);
 		}
-	}}
-	}
-		callback(snap.val());
-	})
-}
 
-function getCategories(callback){
-		var fireB = new Firebase('https://ummo.firebaseio.com/Categories');
-		fireB.once("value",function(snap){
-			callback(snap.val());
-		})
+		
+		callback(qs);
+	});
 }
 
 exports.joinedQ=joinedQ;
 exports.QEr=QEr;
 exports.joinQ=joinQ;
-exports.allQsInProvider = allQsInProvider;
-exports.getCategories = getCategories;
+exports.allQs = allQs;
