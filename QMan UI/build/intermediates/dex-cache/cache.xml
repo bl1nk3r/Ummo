@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/home/blinker/Projects/Ummo/Ummo User UI/app/build/intermediates/exploded-aar/Ummo User UI/library/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="84776e06b739b59f854a6c7543cf7041e10feae8">
+        <dex dex="/home/blinker/Projects/Ummo/Ummo User UI/app/build/intermediates/pre-dexed/debug/classes-9b02d7f545d8c4cda2e169b88e63a86f25f25277.jar" />
+    </item>
+    <item
+        jar="/home/blinker/Projects/Ummo/Ummo User UI/app/build/intermediates/exploded-aar/com.github.johnkil.print/print/1.2.2/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="3423c4e8a6526948045ac0290c0b5ab753ff5ee6">
+        <dex dex="/home/blinker/Projects/Ummo/Ummo User UI/app/build/intermediates/pre-dexed/debug/classes-eedd13c983447a862c681f07519d7753b99a3761.jar" />
+    </item>
+    <item
+        jar="/home/blinker/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-android/1.2.0/6ee2953ccf51ce72b6d548c30c4633b99eb4f9dd/bolts-android-1.2.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="6ee2953ccf51ce72b6d548c30c4633b99eb4f9dd">
+        <dex dex="/home/blinker/Projects/Ummo/Ummo User UI/app/build/intermediates/pre-dexed/debug/bolts-android-1.2.0-4581dd981eb9c942f240d1f69d3630d905464b75.jar" />
+    </item>
+    <item
+        jar="/home/blinker/Projects/Ummo/Ummo User UI/app/build/intermediates/exploded-aar/com.github.shell-software/viewmover/1.1.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="3d6dc28c575755c91be7f6a69803e4ebe98c7c7d">
+        <dex dex="/home/blinker/Projects/Ummo/Ummo User UI/app/build/intermediates/pre-dexed/debug/classes-e52a7889475fbda493f01d5094d19e8ea3906f60.jar" />
+    </item>
+    <item
+        jar="/home/blinker/Projects/Ummo/Ummo User UI/app/build/intermediates/exploded-aar/com.github.shell-software/uitools/1.1.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="418307d960be5f7c5fe13794b7283f5fd09d0c17">
+        <dex dex="/home/blinker/Projects/Ummo/Ummo User UI/app/build/intermediates/pre-dexed/debug/classes-1a6414139833e82f9d2cf40e18cfb22a38714b62.jar" />
+    </item>
+    <item
+        jar="/home/blinker/Projects/Ummo/Ummo User UI/app/build/intermediates/exploded-aar/com.jpardogo.materialtabstrip/library/1.1.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="611c7708cd3df0d7ae99105d4df5af8eb25c4b32">
+        <dex dex="/home/blinker/Projects/Ummo/Ummo User UI/app/build/intermediates/pre-dexed/debug/classes-50e26b49b9645cc35f120db3e34db3154b30b28e.jar" />
+    </item>
+    <item
+        jar="/home/blinker/Projects/Ummo/Ummo User UI/app/build/intermediates/exploded-aar/com.github.chenupt.android/multiplemodel/1.1.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="4d54bca94a9d57520efa2934a9eb57a4cae3f889">
+        <dex dex="/home/blinker/Projects/Ummo/Ummo User UI/app/build/intermediates/pre-dexed/debug/classes-48c089c729018513031b9dcec2e1d4a58f4e86ae.jar" />
+    </item>
+    <item
+        jar="/home/blinker/Projects/Ummo/Ummo User UI/app/build/intermediates/exploded-aar/uk.co.chrisjenx/calligraphy/2.1.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="e653e15e62e8a59ddd76cc7f827bf8bce38ae7bb">
+        <dex dex="/home/blinker/Projects/Ummo/Ummo User UI/app/build/intermediates/pre-dexed/debug/classes-ed115fd7a9ad833fb8bb57af189c5263ccbd0390.jar" />
+    </item>
+    <item
+        jar="/home/blinker/Projects/Ummo/Ummo User UI/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.1.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="3f151e49c316a5ab2c065969a3b3b55ef9b393fc">
+        <dex dex="/home/blinker/Projects/Ummo/Ummo User UI/app/build/intermediates/pre-dexed/debug/classes-1e7476454373dbc4d86426cfe9462f958004142b.jar" />
+    </item>
+    <item
+        jar="/home/blinker/Projects/Ummo/Ummo User UI/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="ddde541c289c8b816a8f8fd6c325d80788c522a6">
+        <dex dex="/home/blinker/Projects/Ummo/Ummo User UI/app/build/intermediates/pre-dexed/debug/classes-c5301de733a0b24539ad097c3d1e165b486976d9.jar" />
+    </item>
+    <item
+        jar="/home/blinker/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.9/872ec63b41181e29ad5a3723f1417356e2d2c0f2/slf4j-api-1.7.9.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="872ec63b41181e29ad5a3723f1417356e2d2c0f2">
+        <dex dex="/home/blinker/Projects/Ummo/Ummo User UI/app/build/intermediates/pre-dexed/debug/slf4j-api-1.7.9-1c1efa6f74302ee2ec91df65d33488e3bbd4f26f.jar" />
+    </item>
+    <item
+        jar="/home/blinker/Projects/Ummo/Ummo User UI/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="57ae0d750ff83f0c738d21720224ac7ea866a094">
+        <dex dex="/home/blinker/Projects/Ummo/Ummo User UI/app/build/intermediates/pre-dexed/debug/classes-65b8698279081b5431f270a632093d732cc9a971.jar" />
+    </item>
+    <item
+        jar="/home/blinker/Projects/Ummo/Ummo User UI/app/build/intermediates/exploded-aar/com.android.support/design/23.1.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="19026d31f5d3ae868db81319671a642be5fbba08">
+        <dex dex="/home/blinker/Projects/Ummo/Ummo User UI/app/build/intermediates/pre-dexed/debug/classes-8b9e12582286939d36c002adf6fe442015cf9539.jar" />
+    </item>
+    <item
+        jar="/media/blinker/cbed5e40-9edc-4d52-bdd7-8f4721daf5a8/home/blinker/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/23.1.0/support-annotations-23.1.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="92e3fc113ec3ee36b64603a38857b95700025633">
+        <dex dex="/home/blinker/Projects/Ummo/Ummo User UI/app/build/intermediates/pre-dexed/debug/support-annotations-23.1.0-65e2d98a089128daf76baeccbae51042a23d4938.jar" />
+    </item>
+    <item
+        jar="/home/blinker/Projects/Ummo/Ummo User UI/app/build/intermediates/exploded-aar/com.facebook.android/facebook-android-sdk/4.7.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="5bdb38b7e4b6094891648c1dc4dc08589b460f97">
+        <dex dex="/home/blinker/Projects/Ummo/Ummo User UI/app/build/intermediates/pre-dexed/debug/classes-cb3560d41a15a3d2c1882d88c96318de0f3db246.jar" />
+    </item>
+    <item
+        jar="/home/blinker/Projects/Ummo/Ummo User UI/app/build/intermediates/exploded-aar/net.soulwolf.widget/dialogBuilder/1.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="e29f4b6305085db37a0af96451cdd468a47d32bb">
+        <dex dex="/home/blinker/Projects/Ummo/Ummo User UI/app/build/intermediates/pre-dexed/debug/classes-8f6d36f7bdf10ec40f58b3fde7a90fe891da705b.jar" />
+    </item>
+    <item
+        jar="/home/blinker/Projects/Ummo/Ummo User UI/app/build/intermediates/exploded-aar/cn.pedant.sweetalert/library/1.3/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="0c3529d9491be892952749d252ae1defa9b1f937">
+        <dex dex="/home/blinker/Projects/Ummo/Ummo User UI/app/build/intermediates/pre-dexed/debug/classes-5b73996a0654aa504fdf32ef450566fd0017b79c.jar" />
+    </item>
+    <item
+        jar="/home/blinker/Projects/Ummo/Ummo User UI/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.0/jars/libs/internal_impl-23.1.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="8716243bf04bae8d6c9ca94d27b9a9be7236f0a3">
+        <dex dex="/home/blinker/Projects/Ummo/Ummo User UI/app/build/intermediates/pre-dexed/debug/internal_impl-23.1.0-2d77c6ca8606286a83cc5ab62626059a5e435081.jar" />
+    </item>
+    <item
+        jar="/home/blinker/Projects/Ummo/Ummo User UI/app/build/intermediates/exploded-aar/com.pnikosis/materialish-progress/1.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="57487745ce450899f9f250d5ae5c092a682cd041">
+        <dex dex="/home/blinker/Projects/Ummo/Ummo User UI/app/build/intermediates/pre-dexed/debug/classes-b61d9bf9034bd03866c8612cc82dd4c9f930d264.jar" />
+    </item>
+    <item
+        jar="/home/blinker/.gradle/caches/modules-2/files-2.1/com.google.guava/guava/18.0/cce0823396aa693798f8882e64213b1772032b09/guava-18.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="cce0823396aa693798f8882e64213b1772032b09">
+        <dex dex="/home/blinker/Projects/Ummo/Ummo User UI/app/build/intermediates/pre-dexed/debug/guava-18.0-2ef138156934e1d5a9b7876645135a6df826de25.jar" />
+    </item>
+    <item
+        jar="/home/blinker/Projects/Ummo/Ummo User UI/app/build/intermediates/exploded-aar/com.github.shell-software/fab/1.1.2/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="48bbecbdd3ed42e9df1b94a945480838e3bb208b">
+        <dex dex="/home/blinker/Projects/Ummo/Ummo User UI/app/build/intermediates/pre-dexed/debug/classes-e0664ec58bb001940088a018f9b1a7e1a203263e.jar" />
+    </item>
+
+</items>

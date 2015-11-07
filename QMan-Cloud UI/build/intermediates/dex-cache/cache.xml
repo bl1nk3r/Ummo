@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/home/barnes/Videos/Ummo5/app/build/intermediates/exploded-aar/Ummo5/library/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="d5f1f629e4a44efabc664e1119c434a338a0f1ef">
+        <dex dex="/home/barnes/Videos/Ummo5/app/build/intermediates/pre-dexed/release/classes-dcd6349e5e36137c1ba886a013d0c922fb09d637.jar" />
+    </item>
+    <item
+        jar="/home/barnes/Videos/Ummo5/app/build/intermediates/exploded-aar/com.github.shell-software/uitools/1.1.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="418307d960be5f7c5fe13794b7283f5fd09d0c17">
+        <dex dex="/home/barnes/Videos/Ummo5/app/build/intermediates/pre-dexed/release/classes-8d686de227baccd15a2f2c3837f17674e7dc0171.jar" />
+    </item>
+    <item
+        jar="/home/barnes/Videos/Ummo5/app/build/intermediates/exploded-aar/com.pnikosis/materialish-progress/1.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="57487745ce450899f9f250d5ae5c092a682cd041">
+        <dex dex="/home/barnes/Videos/Ummo5/app/build/intermediates/pre-dexed/release/classes-e64e73157773bb8028c2df71c802241d4b6ff039.jar" />
+    </item>
+    <item
+        jar="/home/barnes/Videos/Ummo5/app/build/intermediates/exploded-aar/com.github.chenupt.android/multiplemodel/1.1.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="4d54bca94a9d57520efa2934a9eb57a4cae3f889">
+        <dex dex="/home/barnes/Videos/Ummo5/app/build/intermediates/pre-dexed/release/classes-6eb1a986878d5838a2847ce864be0f0817c546c0.jar" />
+    </item>
+    <item
+        jar="/home/barnes/.gradle/caches/modules-2/files-2.1/com.google.guava/guava/18.0/cce0823396aa693798f8882e64213b1772032b09/guava-18.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="cce0823396aa693798f8882e64213b1772032b09">
+        <dex dex="/home/barnes/Videos/Ummo5/app/build/intermediates/pre-dexed/release/guava-18.0-bad4d996ad1856df751d2bc97569377788b2b2b5.jar" />
+    </item>
+    <item
+        jar="/home/barnes/Videos/Ummo5/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
+        <dex dex="/home/barnes/Videos/Ummo5/app/build/intermediates/pre-dexed/release/classes-0a99f34dc60427f0e034d228ca50df7ee7728870.jar" />
+    </item>
+    <item
+        jar="/home/barnes/Videos/Ummo5/app/build/intermediates/exploded-aar/net.soulwolf.widget/dialogBuilder/1.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="e29f4b6305085db37a0af96451cdd468a47d32bb">
+        <dex dex="/home/barnes/Videos/Ummo5/app/build/intermediates/pre-dexed/release/classes-ec819f81a8299b855ae7d25931400473cba415eb.jar" />
+    </item>
+    <item
+        jar="/home/barnes/Videos/Ummo5/app/build/intermediates/exploded-aar/com.jpardogo.materialtabstrip/library/1.1.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="611c7708cd3df0d7ae99105d4df5af8eb25c4b32">
+        <dex dex="/home/barnes/Videos/Ummo5/app/build/intermediates/pre-dexed/release/classes-472d452357a3ab8b008db60c3ae673e19935d604.jar" />
+    </item>
+    <item
+        jar="/home/barnes/Videos/Ummo5/app/build/intermediates/exploded-aar/cn.pedant.sweetalert/library/1.3/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="0c3529d9491be892952749d252ae1defa9b1f937">
+        <dex dex="/home/barnes/Videos/Ummo5/app/build/intermediates/pre-dexed/release/classes-bddc6dcc2af0de95c095890bc6174bc5535f954f.jar" />
+    </item>
+    <item
+        jar="/home/barnes/Videos/Ummo5/app/build/intermediates/exploded-aar/com.github.shell-software/viewmover/1.1.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="3d6dc28c575755c91be7f6a69803e4ebe98c7c7d">
+        <dex dex="/home/barnes/Videos/Ummo5/app/build/intermediates/pre-dexed/release/classes-943248e3ab682a23542704bb2f8adf0373c5bec7.jar" />
+    </item>
+    <item
+        jar="/home/barnes/android-sdk/android-sdk-linux/extras/android/m2repository/com/android/support/support-annotations/23.0.1/support-annotations-23.0.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="1fce89a6428c51467090d7f424e4c9c3dbd55f7e">
+        <dex dex="/home/barnes/Videos/Ummo5/app/build/intermediates/pre-dexed/release/support-annotations-23.0.1-135c9744ee8eef1fa3ac1d012ce78dd603269233.jar" />
+    </item>
+    <item
+        jar="/home/barnes/Videos/Ummo5/app/build/intermediates/exploded-aar/com.github.johnkil.print/print/1.2.2/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="3423c4e8a6526948045ac0290c0b5ab753ff5ee6">
+        <dex dex="/home/barnes/Videos/Ummo5/app/build/intermediates/pre-dexed/release/classes-f49c40de5525b709d0c2ac3d100a75e53c420fb8.jar" />
+    </item>
+    <item
+        jar="/home/barnes/Videos/Ummo5/app/build/intermediates/exploded-aar/uk.co.chrisjenx/calligraphy/2.1.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="e653e15e62e8a59ddd76cc7f827bf8bce38ae7bb">
+        <dex dex="/home/barnes/Videos/Ummo5/app/build/intermediates/pre-dexed/release/classes-943177435fb15e0262301388321e8dc433e69bb2.jar" />
+    </item>
+    <item
+        jar="/home/barnes/Videos/Ummo5/app/build/intermediates/exploded-aar/com.github.shell-software/fab/1.1.2/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="48bbecbdd3ed42e9df1b94a945480838e3bb208b">
+        <dex dex="/home/barnes/Videos/Ummo5/app/build/intermediates/pre-dexed/release/classes-f2242f05ec0eecad0e9080294e8588ebcdead206.jar" />
+    </item>
+    <item
+        jar="/home/barnes/Videos/Ummo5/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="c31e21b53ff2f74664e498248d01453a32e32d48">
+        <dex dex="/home/barnes/Videos/Ummo5/app/build/intermediates/pre-dexed/release/classes-17542478c73c8e9959d6196ee5c0670c207cb6ee.jar" />
+    </item>
+    <item
+        jar="/home/barnes/.gradle/caches/modules-2/files-2.1/org.slf4j/slf4j-api/1.7.9/872ec63b41181e29ad5a3723f1417356e2d2c0f2/slf4j-api-1.7.9.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="872ec63b41181e29ad5a3723f1417356e2d2c0f2">
+        <dex dex="/home/barnes/Videos/Ummo5/app/build/intermediates/pre-dexed/release/slf4j-api-1.7.9-3433aa3c1c02ea3b082e66a798ef35db3314854b.jar" />
+    </item>
+    <item
+        jar="/home/barnes/Videos/Ummo5/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/libs/internal_impl-23.0.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="aa92916125166649d8ad4ba3940c3dd7515596d3">
+        <dex dex="/home/barnes/Videos/Ummo5/app/build/intermediates/pre-dexed/release/internal_impl-23.0.1-b0d89981f62a1c821b262028f83dd791f0e37311.jar" />
+    </item>
+
+</items>
