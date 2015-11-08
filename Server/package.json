@@ -27,9 +27,10 @@
     "body-parser": "latest",
     "express": "latest",
     "firebase": "^2.2.7",
-    "mongoose": "latest",
+    "mongojs": "latest",
     "nodemon": "latest",
-    "firebase-tools": "latest"
+    "firebase-tools": "latest",
+    "pm2": "^0.15.10"
   },
   "scripts": {
     "start": "node ./qServer.js",
