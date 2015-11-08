@@ -16,6 +16,15 @@ public class MainActivity extends AppCompatActivity implements QUserListner,QMas
     QUser qUser;
 
 
+    @Override
+    public void qReady(String string) {
+
+    }
+
+    @Override
+    public void qError(String err) {
+
+    }
 
     //These are the functions to be implemented
     @Override

@@ -11,6 +11,7 @@ public interface QUserListner
     public void updated(String string);
     public void categoriesReady(String string);
     public void allQsReady(String string);
+    public  void qReady(String string);
 
     //Errors
     public void userRegistrationError(String err);
@@ -19,4 +20,5 @@ public interface QUserListner
     public void updateError(String err);
     public void categoriesError(String err);
     public void allQError(String err);
+    public void qError(String err);
 }

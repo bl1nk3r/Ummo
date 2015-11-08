@@ -6,8 +6,12 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.example.barnes.ummo.db.Db;
+import com.example.barnes.ummo.holder.SelectableItemHolder;
 import com.example.barnes.ummo.ummoAPI.QUser;
 import com.example.barnes.ummo.ummoAPI.QUserListner;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  * Created by barnes on 8/7/15.
@@ -17,9 +21,60 @@ public class SingleFragmentActivity extends Activity implements QUserListner
     Db db;
 
     private QUser user;
+    private vQ selectedQ;
+
     private String categoriesJSON;
     private String qsJSON;
+    private String qJSON;
     private String serviceProvidersJSON;
+
+    //Some setters and getters for qs
+    public void setSelectedQ(vQ vq){
+        selectedQ=vq;
+
+    }
+
+    public void setQinfoDialog(SelectableItemHolder info){
+        selectedQ.setInfo(info);
+    }
+
+    public vQ getSelectedQ(){
+        return selectedQ;
+    }
+
+    public void setSelectedQ(String cell){
+        selectedQ = new vQ();
+        selectedQ.setCellNumb(cell);
+    }
+
+    public void setSelectedQ(JSONObject obj){
+        selectedQ = new vQ();
+        selectedQ.setFromJSON(obj);
+    }
+    //end setters and getters for qs
+
+    //Overriding for QUserListener Begins Here
+    //sucess Handlers
+    @Override
+    public void qReady(String string) {
+        qJSON=string;
+        Log.d("QDATA",string);
+        try {
+            JSONObject object = new JSONObject(qJSON);
+            selectedQ.getInfo().dialog(qJSON);
+
+        }
+
+        catch (JSONException jse){
+            Log.d("Error",jse.toString());
+        }
+
+    }
+
+    @Override
+    public void qError(String err) {
+
+    }
 
     public String getCategoriesJSON(){
         return categoriesJSON;
@@ -34,10 +89,13 @@ public class SingleFragmentActivity extends Activity implements QUserListner
     }
 
 
+    public QUser getUser(){
+        return user;
+    }
+
     public final static String FRAGMENT_PARAM = "fragment";
 
-    //Overriding for QUserListener Begins Here
-    //sucess Handlers
+
     @Override
     public void userRegistered(String string) {
 
@@ -146,5 +204,39 @@ public class SingleFragmentActivity extends Activity implements QUserListner
 
         Log.e("about", "to call fuction");
         user.startUpdatesDaemon();
+    }
+}
+
+class vQ{
+    private String cellNumb;
+    private SelectableItemHolder info;
+    private String qLocation;
+    private int qlength;
+    private int ttdqMin;
+    private int ttdqSec;
+
+
+    public void setInfo(SelectableItemHolder info1){
+        info=info1;
+    }
+
+    public SelectableItemHolder getInfo(){
+        return info;
+    }
+
+    public vQ(){
+
+    }
+
+    public void calculateStats(){
+
+    }
+
+    public void setFromJSON(JSONObject vq){
+        info.dialog(vq.toString());
+    }
+
+    public void setCellNumb(String cellNumb1){
+        cellNumb = cellNumb1;
     }
 }

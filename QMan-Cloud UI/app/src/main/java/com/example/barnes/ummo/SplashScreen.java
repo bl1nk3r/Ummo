@@ -31,6 +31,16 @@ public class SplashScreen extends Activity implements QUserListner
     long Delay = 10000;
 
     @Override
+    public void qReady(String string) {
+
+    }
+
+    @Override
+    public void qError(String err) {
+
+    }
+
+    @Override
     public void userRegistered(String string) {
         // parse the string a JSONObject or JSONArray
         //Registration  is successful , Start Main Activity

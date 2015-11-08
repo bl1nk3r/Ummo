@@ -1,5 +1,6 @@
 package com.example.barnes.ummo.holder;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.CountDownTimer;
@@ -10,11 +11,16 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.barnes.ummo.Qs;
 import com.example.barnes.ummo.R;
+import com.example.barnes.ummo.SingleFragmentActivity;
 import com.example.barnes.ummo.db.Db;
 import com.unnamed.b.atv.model.TreeNode;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.List;
 import java.util.Random;
@@ -32,6 +38,7 @@ public class SelectableItemHolder extends TreeNode.BaseNodeViewHolder<String>
     public String selecHeader;
     String tabTitle;
     private int i = -1;
+    SingleFragmentActivity parent;
     int tabPos = 0;
     public List<String> qsJoinedNum = null;
     public List<String> qNameList = null;
@@ -41,17 +48,49 @@ public class SelectableItemHolder extends TreeNode.BaseNodeViewHolder<String>
     String qsJoined;
     Db db;
 
+    JSONObject vq;
+
+
     public void dialog(final String text)
     {
+
+
+
         final Context c = context;
         final String text_ = text;
         final SweetAlertDialog pDialog;
         pDialog = new SweetAlertDialog(context, SweetAlertDialog.PROGRESS_TYPE)
-                .setTitleText(selecHeader+" "+text)
+                .setTitleText(selecHeader)
                 .setContentText("Loading...");
 
         pDialog.show();
         pDialog.setCancelable(false);
+
+        //Extracts Qstats from text
+
+        int mins=0;
+        int qLength=0;
+
+        try{
+            JSONObject jobject = new JSONObject(text);
+            if (jobject.has("ttdq")){
+                mins = jobject.getInt("ttdq");
+            }
+
+            if (jobject.has("qErs")){
+                qLength = jobject.getJSONObject("qErs").length();
+            }
+        }
+
+        catch (JSONException jse){
+            Log.e("Erorr","Can't Extract Qsats form text"+jse.toString());
+        }
+
+        final int ttdq_mins = mins/(60*1000);
+        final int ttqd_secs = mins/(1000)-ttdq_mins*60;
+        final int final_length=qLength;
+        //End Extracts Qstats from text
+
         new CountDownTimer(800 * 7, 800)
         {
             public void onTick(long millisUntilFinished)
@@ -85,11 +124,11 @@ public class SelectableItemHolder extends TreeNode.BaseNodeViewHolder<String>
             public void onFinish()
             {
                 i = -1;
-                pDialog.setTitleText(selecHeader + " " + text_ + " Queue")
+                pDialog.setTitleText(selecHeader + " Queue")
                         .setContentText(
                                 "Queue Location:".toUpperCase() + "\nMbabane\n" +
-                                "Queue Length:".toUpperCase() + "\n22\n" +
-                                "Queue DQ time:".toUpperCase() + "\n00:05\n" +
+                                "Queue Length:".toUpperCase() + "\n"+final_length+"\n" +
+                                "Queue DQ time:".toUpperCase() + "\n"+ttdq_mins+":"+ttqd_secs+"\n" +
                                 "Queue Requirements:".toUpperCase() + "\nNational Id")
                         .setConfirmText("Join Q")
                         .setCancelClickListener(new SweetAlertDialog.OnSweetClickListener()
@@ -107,6 +146,7 @@ public class SelectableItemHolder extends TreeNode.BaseNodeViewHolder<String>
                                 new SweetAlertDialog.OnSweetClickListener() {
                                     @Override
                                     public void onClick(SweetAlertDialog sDialog) {
+
                                         qsJoinedNum = db.getAllQs();
                                         if (!qsJoinedNum.isEmpty()) {
                                             int qsJoinedSize = qsJoinedNum.size();
@@ -270,11 +310,25 @@ public class SelectableItemHolder extends TreeNode.BaseNodeViewHolder<String>
         }.start();
     }
 
-    public SelectableItemHolder(Context context, String itemHeader, String qjoined)
+    public SelectableItemHolder(Activity context, JSONObject itemHeader, String qjoined)
     {
         super(context);
+
+        vq=itemHeader;
+        parent = (SingleFragmentActivity)context;
+
         db = new Db(context);
-        selecHeader = itemHeader;
+        //String s =((SingleFragmentActivity)context).getUser().getName();
+        Log.e("User","s");
+        try {
+            selecHeader = itemHeader.getString("name");
+        }
+
+        catch (JSONException jse){
+            Log.e("Error",jse.toString());
+            selecHeader = "Error, get Help";
+        }
+
         qsJoined = qjoined;
     }
 
@@ -289,14 +343,23 @@ public class SelectableItemHolder extends TreeNode.BaseNodeViewHolder<String>
         tvValue.setTextIsSelectable(true);
         nodeSelector = (CheckBox) view.findViewById(R.id.node_selector);
         exit_q_menu = (Button) view.findViewById(R.id.btn_exit_q_menu);
-
         nodeSelector.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 db.open();
+                Log.e("User", parent.getUser().getName());
                 qNameList = db.getQName(tvValue.getText().toString());
                 if (nodeSelector.isChecked()) {
-                    dialog(tvValue.getText().toString());
+                    //dialog(tvValue.getText().toString());
+                    try {
+                        parent.setSelectedQ(vq.getString("Id"));
+                        parent.getUser().getQ(vq.getString("Id"));
+                        parent.setQinfoDialog(SelectableItemHolder.this);
+                    }
+
+                    catch (JSONException jse){
+                        Toast.makeText(parent,"Cannot Get The Q information, Q ID is Broken",Toast.LENGTH_LONG).show();
+                    }
                 }
                 db.close();
             }

@@ -28,7 +28,7 @@ public class QUser
     private Activity callingActivity;
     private String uCellNumber="76583262";
     private boolean registered = false;
-    private String uName;
+    private String uName="Sihle Mbhamali";
     private boolean mBound=false;
     private UmmoDaemon daemon;
     //private UmmoDaemon ummoDaemon;
@@ -279,6 +279,60 @@ public class QUser
 
 
     }
+
+    public void getQ(String qcell) {
+        try {
+
+            String urlString = callingActivity.getString(R.string.SERVER_URL) + "user/getQ";
+            final FormPoster formPoster = new FormPoster(new URL(urlString));
+            formPoster.add("qid",qcell);
+            formPoster.add("data", "data");
+            Thread thread = new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    try {
+                        InputStream is = formPoster.post();
+
+                        BufferedReader rd = new BufferedReader(new InputStreamReader(is));
+                        final StringBuilder response = new StringBuilder(); // or StringBuffer if not Java 5+
+                        String line;
+                        while ((line = rd.readLine()) != null) {
+                            response.append(line);
+                            response.append('\r');
+                        }
+                        rd.close();
+
+                        final String objString = response.toString();
+                        callingActivity.runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                ((QUserListner) callingActivity).qReady(objString);
+                            }
+                        });
+
+
+                    } catch (final IOException ioe) {
+                        callingActivity.runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                ((QUserListner) callingActivity).qError(ioe.toString());
+                            }
+                        });
+                    }
+
+                }
+            });
+
+            thread.start();
+
+
+        } catch (MalformedURLException me) {
+            Log.e("NetWork Exception", me.toString());
+        }
+
+
+    }
+
 
     public void getProvides() {
 

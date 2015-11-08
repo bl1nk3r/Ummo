@@ -28,6 +28,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
@@ -58,77 +59,54 @@ public class SelectableTreeFragment extends Fragment
                         .build()
         );
 
+
+
         c = this.getActivity();
         TreeNode root = TreeNode.root();
         String string = ((SingleFragmentActivity)getActivity()).getCategoriesJSON();
-        try
-        {
+        try {
             ArrayList<TreeNode> treeNodeList = new ArrayList<>();
             ArrayList<TreeNode> treeNodeList2 = new ArrayList<>();
-            ArrayList<String> serviceNameColl = new ArrayList<>();
+            ArrayList<JSONObject> serviceNameColl = new ArrayList<>();
             JSONArray array= new JSONArray(string);
             qServiceTypeList = new ArrayList<String>();
             for (int i =0; i<array.length();i++){
                 JSONObject object = array.getJSONObject(i);
                 String categoryName = object.getString("name");
                 qServiceTypeList.add(categoryName);
-                if(categoryName.equals("Fast Food"))
-                {
-                    treeNodeList.add(new TreeNode(new IconTreeItemHolder.IconTreeItem(categoryName,R.string.fa_cutlery)).setViewHolder(new ProfileHolder(getActivity())));
-                }
-                else if(categoryName.equals("Government Services"))
-                {
-                    treeNodeList.add(new TreeNode(new IconTreeItemHolder.IconTreeItem(categoryName,R.string.fa_globe)).setViewHolder(new ProfileHolder(getActivity())));
-                }
-                else if(categoryName.equals("Financial Services"))
-                {
-                    treeNodeList.add(new TreeNode(new IconTreeItemHolder.IconTreeItem(categoryName,R.string.fa_credit_card)).setViewHolder(new ProfileHolder(getActivity())));
-                }
-                else if(categoryName.equals("Medical Services"))
-                {
-                    treeNodeList.add(new TreeNode(new IconTreeItemHolder.IconTreeItem(categoryName,R.string.fa_hospital_o)).setViewHolder(new ProfileHolder(getActivity())));
-                }
-                else if(categoryName.equals("Miscellaneous"))
-                {
-                    treeNodeList.add(new TreeNode(new IconTreeItemHolder.IconTreeItem(categoryName,R.string.fa_genderless)).setViewHolder(new ProfileHolder(getActivity())));
-                }
-                else
-                {
-                    treeNodeList.add(new TreeNode(new IconTreeItemHolder.IconTreeItem(categoryName,R.string.ic_sd_storage)).setViewHolder(new ProfileHolder(getActivity())));
-                }
+                treeNodeList.add(new TreeNode(new IconTreeItemHolder.IconTreeItem(categoryName,R.string.ic_sd_storage)).setViewHolder(new ProfileHolder(getActivity())));
                 if (object.has("Providers")){
                     JSONArray providers = object.getJSONArray("Providers");
                     for (int j = 0; j < providers.length(); j++)
                     {
                         //Setting the Service Categories
                         JSONObject providerObj = providers.getJSONObject(j);
-                        Log.d("object", providerObj.toString());
-                        if (providerObj.getString("name").equals("DPM Office"))
-                        {
-                            treeNodeList2.add(new TreeNode(new IconTreeItemHolder.IconTreeItem(providerObj.getString("name"),R.string.fa_building_o)).setViewHolder(new SelectableHeaderHolder_2(getActivity())));
-                        }
-                        else
-                        {
-                            treeNodeList2.add(new TreeNode(new IconTreeItemHolder.IconTreeItem(providerObj.getString("name"),R.string.ic_folder)).setViewHolder(new SelectableHeaderHolder_2(getActivity())));
-                        }
+                        Log.d("object",providerObj.toString());
+                        treeNodeList2.add(new TreeNode(new IconTreeItemHolder.IconTreeItem(providerObj.getString("name"),R.string.ic_folder)).setViewHolder(new SelectableHeaderHolder_2(getActivity())));
                         treeNodeList.get(i).addChildren(treeNodeList2.get(j));
                        /* getServicePID = db.getQServicePid(qServiceProviderName.get(j));
                         string_serviceProviderid = getServicePID.get(0);
                         int_serviceProviderid = Integer.parseInt(string_serviceProviderid);
                         qServiceName = db.getQServiceName(int_serviceProviderid);*/
 
-                        if (providerObj.has("Services"))
-                        {
+
+                        if (providerObj.has("Services")){
                             JSONArray services = providerObj.getJSONArray("Services");
-                            for (int k = 0; k < services.length(); k++)
-                            {
-                                serviceNameColl.add(services.getJSONObject(k).getString("name"));
+                            
+                            for (int k = 0; k < services.length(); k++) {
+                                serviceNameColl.add(services.getJSONObject(k));
+
+
                             }
 
                             customfillFolder(treeNodeList2.get(j), serviceNameColl, "qServiceProviderName.get(i)");
                         }
                     }
+
+
+
                 }
+
                 serviceNameColl.clear();
                 treeNodeList2.clear();
             }
@@ -214,23 +192,23 @@ public class SelectableTreeFragment extends Fragment
         return rootView;
     }
 
-    private void customfillFolder(TreeNode folder, ArrayList<String> list, String serviceName)
+    private void customfillFolder(TreeNode folder, ArrayList<JSONObject> list, String serviceName)
     {
         List<String> qJoinedList = null;
         //qJoinedList = db.getQName(serviceName);
-        if (true)
-        {
-            for (int i = 0;i < list.size();i++)
-            {
-                folder.addChildren(new TreeNode(list.get(i)).setViewHolder(new SelectableItemHolder(getActivity(),"serviceName", "serviceName")));
+        try {
+            if (true) {
+                for (int i = 0; i < list.size(); i++) {
+                    folder.addChildren(new TreeNode(list.get(i).getString("name")).setViewHolder(new SelectableItemHolder(getActivity(), list.get(i), "serviceName")));
+                }
+            } else {
+                for (int i = 0; i < list.size(); i++) {
+                    folder.addChildren(new TreeNode(list.get(i)).setViewHolder(new SelectableItemHolder(getActivity(), list.get(i), "serviceName")));
+                }
             }
         }
-        else
-        {
-            for (int i = 0;i < list.size();i++)
-            {
-                folder.addChildren(new TreeNode(list.get(i)).setViewHolder(new SelectableItemHolder(getActivity(), serviceName, "serviceName")));
-            }
+        catch(JSONException jse){
+             Log.e("Json Error Passing Qs",jse.toString());
         }
     }
 
