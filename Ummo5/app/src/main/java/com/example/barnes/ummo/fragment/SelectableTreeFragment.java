@@ -19,6 +19,9 @@ import com.example.barnes.ummo.holder.IconTreeItemHolder;
 import com.example.barnes.ummo.holder.ProfileHolder;
 import com.example.barnes.ummo.holder.SelectableHeaderHolder_2;
 import com.example.barnes.ummo.holder.SelectableItemHolder;
+import com.google.android.gms.analytics.GoogleAnalytics;
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 import com.software.shell.fab.ActionButton;
 import com.unnamed.b.atv.model.TreeNode;
 import com.unnamed.b.atv.view.AndroidTreeView;
@@ -40,11 +43,14 @@ import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 public class SelectableTreeFragment extends Fragment
 {
     private AndroidTreeView tView;
+    private String name = "Ummo queue category";
     Db db;
     public List<String> qServiceTypeList = null;
     public List<String> qServiceProviderName = null;
     public List<String> qServiceName = null;
     public List<String> qsJoined = null;
+    public static GoogleAnalytics analytics;
+    public static Tracker tracker;
     ActionButton actionButton;
     Context c;
 
@@ -53,6 +59,18 @@ public class SelectableTreeFragment extends Fragment
     {
         View rootView = inflater.inflate(R.layout.fragment_selectable_nodes, null, false);
         ViewGroup containerView = (ViewGroup) rootView.findViewById(R.id.container);
+
+        analytics = GoogleAnalytics.getInstance(rootView.getContext());
+        analytics.setLocalDispatchPeriod(1800);
+
+        tracker = analytics.newTracker("UA-70767186-1");
+        tracker.enableAutoActivityTracking(true);
+        tracker.enableExceptionReporting(true);
+        tracker.enableAdvertisingIdCollection(false);
+        Log.i("GA says -----", "Setting screen name: " + name);
+        tracker.setScreenName("Image~" + name);
+        tracker.send(new HitBuilders.ScreenViewBuilder().build());
+
         CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
                         .setDefaultFontPath("fonts/Ubuntu-C.ttf")
                         .setFontAttrId(R.attr.fontPath)

@@ -14,6 +14,9 @@ import android.widget.Toast;
 import com.example.barnes.ummo.fragment.SelectableTreeFragment;
 import com.example.barnes.ummo.ummoAPI.QUser;
 import com.example.barnes.ummo.ummoAPI.QUserListner;
+import com.google.android.gms.analytics.GoogleAnalytics;
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 
 import java.util.LinkedHashMap;
 import java.util.Timer;
@@ -27,6 +30,9 @@ import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 public class SplashScreen extends Activity implements QUserListner
 {
     private ProgressDialog p_Dialog;
+    public static GoogleAnalytics analytics;
+    public static Tracker tracker;
+    private String name = "Ummo Splash";
     final LinkedHashMap<String, Class<?>> listItems = new LinkedHashMap<>();
     long Delay = 10000;
 
@@ -126,6 +132,17 @@ public class SplashScreen extends Activity implements QUserListner
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        analytics = GoogleAnalytics.getInstance(this);
+        analytics.setLocalDispatchPeriod(1800);
+
+        tracker = analytics.newTracker("UA-70767186-1");
+        tracker.enableAutoActivityTracking(true);
+        tracker.enableExceptionReporting(true);
+        tracker.enableAdvertisingIdCollection(false);
+        Log.i("GA says -----", "Setting screen name: " + name);
+        tracker.setScreenName("Image~" + name);
+        tracker.send(new HitBuilders.ScreenViewBuilder().build());
+
         CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
                         .setDefaultFontPath("fonts/Ubuntu-C.ttf")
                         .setFontAttrId(R.attr.fontPath)
