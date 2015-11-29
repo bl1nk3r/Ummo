@@ -7,6 +7,8 @@
  var url = require("url");
 var qMaster = require("./qMaster");
 var qUser = require("./user");
+
+var bodyParser = require('body-parser')
 //var ummoQ = require("./ummoQue");
 //Tests for qMaster
 //Test for register.
@@ -31,10 +33,11 @@ qMaster.getMyques("55985a1d20f0c13a602f2c77",function(param){
     console.log(param);
 })
 */
+app.use(bodyParser.urlencoded());
 app.post('/user/categories', function (req, res){
-  /*  var uid = req.body.uid
-       ,qid = req.body.qid;*/
-    qUser.getCategories(function (param){
+    var uid = req.body.uid
+       ,qid = req.body.qid;
+    qUser.removeQs(qid,uid,function (param){
       //  console.log("QEr- '" + uid + "' joined Q: '" + qid + "'!");
         res.send(param);
     });

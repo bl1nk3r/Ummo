@@ -50,7 +50,9 @@ app.post('/qMaster/createQ', function (req, res){
       qActive:false,
       qFrame:req.body.frame,
       qName:req.body.qName,
-      qTag: req.body.tag
+      alphaNumBase:req.body.alphaNumBase,
+      qTag: req.body.tag,
+      lastNumber:1
     }
 
     qMaster.createQ(qmaster,vQ, function (param){
@@ -90,7 +92,7 @@ app.post('/qMaster/deQUser', function (req,res){
 
 //REST for user client app
 app.post('/user', function (req, res){
-
+	console.log("User");
 });
 //CHECKED!!!
 app.post('/user/register', function (req, res){
@@ -141,6 +143,16 @@ app.post('/user/leaveQ', function (req, res){
         res.send(param);
     })
 });
+
+app.post('/user/getQ', function (req, res){
+    var qid = req.body.qid;
+
+    qEr.getQ(qid, function (param){
+        console.log("Requesting Q:"+qid);
+        res.send(param);
+    })
+});
+
 //CHECKED!!!
 app.post('/user/joinedQs', function (req, res){
     var uid = req.body.uid;
@@ -151,6 +163,10 @@ app.post('/user/joinedQs', function (req, res){
     });
 });
 
+
+app.get('/',function(req,res){
+  res.send("Hello This is Ummo");
+})
 
 var server = app.listen(8080, function(){
     console.log("listening for Q requests on port 3000!");

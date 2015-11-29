@@ -1,12 +1,13 @@
 function register(qMaster,callback) {
 	var fireB = new Firebase('https://ummo.firebaseio.com/qMaster/users/'+qMaster.cellNum);
 	fireB.set(qMaster);
+	var stat = {status:"scucess"}
+	callback(stat);
 }
 
 function craeteQ(qMaster,vQ,callback){
 	var fireB = new Firebase('https://ummo.firebaseio.com/qMaster/users/'+qMaster.cellNum+"/managedQ");
 	fireB.set(vQ);
-
 }
 
 function destroyQ(qMaster,callback) {
@@ -29,7 +30,7 @@ function dQUser(qMaster,user) {
 			}
 				dqTime.child("dqTime").set(Date.now());
 
-		})
+		});
 
 	 var pos=snapshot.child(user).val();
 	 snapshot.forEach(function(childSnapshot) {

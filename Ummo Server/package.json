@@ -1,6 +1,6 @@
 {
   "name": "Ummo",
-  "version": "0.0.1",  
+  "version": "0.0.1",
    "scripts": {
     "start": "nodejs qServer.js",
     "monitor": "nodemon qServer.js",
@@ -32,7 +32,7 @@
     "firebase-tools": "latest"
   },
   "scripts": {
-    "start": "node ./qServer.js",
+    "start": "nodejs ./qServer.js",
     "monitor": "nodemon qServer.js"
      },
   "repository": {

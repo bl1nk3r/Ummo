@@ -4,6 +4,44 @@ function QEr(user,callback){
 
 	fireB.set(user);
 }
+
+function removeQs(vq,user,callback){
+	var found = 0;
+	var last=0;
+	var fireBQs = new Firebase('https://ummo.firebaseio.com/qEr/users/'+user+"/joinedQs");
+	fireBQs.once("value",function(snap){
+		snap.forEach(function(childSnapshot){
+			if((childSnapshot.val()==vq)){
+				found=childSnapshot.key();
+			}
+			last = childSnapshot.key();
+
+		})
+			console.log("Removing"+found+"Last one is"+last);
+			var arr = snap.val();
+			//console.log(arr[2]);
+			for(var i=Number(found);i<last;i++){
+				if(i<last){
+					fireBQs.child(i).set(arr[i+1]);
+					console.log(arr[i+1]);
+					console.log(i+1);
+				}
+				else {
+						console.log("Removing");
+						fireBQs.child(i).set(null);
+				}
+			}
+			if(found>0){
+				fireBQs.child(last).set(null);
+			}
+			console.log(found);
+			if(found==0){
+					fireBQs.child(found).set(null);
+			}
+
+	});
+	callback("Helo");
+}
 function clenQs(cell,callback){
 	var fireBQs = new Firebase('https://ummo.firebaseio.com/qEr/users/'+cell+"/joinedQs");
 	fireBQs.once("value",function (snap) {
@@ -19,8 +57,14 @@ function clenQs(cell,callback){
 				else {
 					console.log(snapshot.key()+"Has to be cleaned!");
 					snap.forEach(function(childSnapshot) {
-							var childData = childSnapshot.val();
-							console.log(childData);
+							if(snapshot.key()==childSnapshot.val()){
+								console.log(childSnapshot.key()+":"+snapshot.key());
+								fireBQs.child(childSnapshot.key()).set(null);
+								for(var j = childSnapshot.key();j<snap.numChildren();j++){
+									console.log()
+								}
+							}
+
 					});
 				}
 			})
@@ -53,7 +97,7 @@ function update(user,callback) {
 	fireB.on("value",function (snapshot) {callback(snapshot.val())},function (err) {callback(err)});
 	}
 
-function leaveQ(user,vq) {
+function leaveQ(user,vq,callback) {
 
 	var fireB = new Firebase('https://ummo.firebaseio.com/qMaster/users/'+vq+"/managedQ/qErs");
 	fireB.once("value",function (snapshot) {
@@ -75,9 +119,11 @@ function leaveQ(user,vq) {
 
 	var myFire = new Firebase('https://ummo.firebaseio.com/qEr/users/'+user+'/joinedQs')
 
-	myFire.once("value",function (snap) {
+/*	myFire.once("value",function (snap) {
 			myFire.child(snap.numChildren()).set(null);
 	});
+*/
+	removeQs(vq,user,callback);
 }
 
 function joinedQ(user,callback){
@@ -131,12 +177,20 @@ function allQsInProvider(provider,callback){
 
 function getCategories(callback){
 		var fireB = new Firebase('https://ummo.firebaseio.com/Categories');
-		clenQs("76583264",callback);
 		fireB.once("value",function(snap){
-			//callback(snap.val());
+			callback(snap.val());
 		})
 }
 
+function getQ(vq,callback){
+	var fireB = new Firebase('https://ummo.firebaseio.com/qMaster/users/'+vq+'/managedQ');
+	fireB.once('value',function(snap){
+		callback(snap.val());
+	})
+}
+exports.getQ=getQ;
+exports.leaveQ = leaveQ;
+exports.removeQs = removeQs;
 exports.joinedQ=joinedQ;
 exports.QEr=QEr;
 exports.joinQ=joinQ;
