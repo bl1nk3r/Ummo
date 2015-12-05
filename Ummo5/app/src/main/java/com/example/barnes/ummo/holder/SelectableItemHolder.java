@@ -162,7 +162,7 @@ public class SelectableItemHolder extends TreeNode.BaseNodeViewHolder<String>
                                             int i1 = r.nextInt(101 - 1) + 1;
                                             final String pos = Integer.toString(i1);
                                             sDialog.setTitleText("Queued In")
-                                                    .setContentText("You have joined the " + selecHeader + " " + text + " queue, your position is #" + pos)
+                                                    .setContentText("You have joined the " + selecHeader + " " + selecHeader + " queue, your position is #" + pos)
                                                     .setConfirmText("OK")
                                                     .showCancelButton(false)
                                                     .setCancelClickListener(null)

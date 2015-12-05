@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#ffffff"
+    android:padding="10dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ummo Alias :"
+        android:id="@+id/textViewAlias"
+        android:padding="10dp"/>
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/qman_alias"
+        android:padding="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mobile Number :"
+        android:id="@+id/TVMobile"
+        android:padding="10dp"/>
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/qman_cell"
+        android:padding="10dp"
+        android:inputType="number"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ummo Test ID :"
+        android:id="@+id/textView"
+        android:padding="10dp"/>
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/qman_testid"
+        android:padding="10dp"
+        android:paddingBottom="10dp"
+        android:inputType="number"/>
+
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="Signup to test Ummo"
+        android:id="@+id/qman_signup_button"
+        android:textStyle="bold"
+        android:layout_gravity="center_horizontal"
+        android:onClick="onClick"
+        android:background="@drawable/button_border"
+        android:textColor="#6ac9e0"
+        android:textSize="18dp"/>
+</LinearLayout>

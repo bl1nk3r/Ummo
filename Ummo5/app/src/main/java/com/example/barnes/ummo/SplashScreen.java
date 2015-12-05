@@ -14,9 +14,9 @@ import android.widget.Toast;
 import com.example.barnes.ummo.fragment.SelectableTreeFragment;
 import com.example.barnes.ummo.ummoAPI.QUser;
 import com.example.barnes.ummo.ummoAPI.QUserListner;
-import com.google.android.gms.analytics.GoogleAnalytics;
-import com.google.android.gms.analytics.HitBuilders;
-import com.google.android.gms.analytics.Tracker;
+//import com.google.android.gms.analytics.GoogleAnalytics;
+//import com.google.android.gms.analytics.HitBuilders;
+///i//mport com.google.android.gms.analytics.Tracker;
 
 import java.util.LinkedHashMap;
 import java.util.Timer;
@@ -30,9 +30,11 @@ import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 public class SplashScreen extends Activity implements QUserListner
 {
     private ProgressDialog p_Dialog;
-    public static GoogleAnalytics analytics;
-    public static Tracker tracker;
+    //Appended by Jay begins
+   // public static GoogleAnalytics analytics;
+   // public static Tracker tracker;
     private String name = "Ummo Splash";
+    //Appended by Jay ends
     final LinkedHashMap<String, Class<?>> listItems = new LinkedHashMap<>();
     long Delay = 10000;
 
@@ -132,16 +134,18 @@ public class SplashScreen extends Activity implements QUserListner
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        analytics = GoogleAnalytics.getInstance(this);
-        analytics.setLocalDispatchPeriod(1800);
+        //Appended by Jay begins
+        //analytics = GoogleAnalytics.getInstance(this);
+        //analytics.setLocalDispatchPeriod(1800);
 
-        tracker = analytics.newTracker("UA-70767186-1");
-        tracker.enableAutoActivityTracking(true);
-        tracker.enableExceptionReporting(true);
-        tracker.enableAdvertisingIdCollection(false);
-        Log.i("GA says -----", "Setting screen name: " + name);
-        tracker.setScreenName("Image~" + name);
-        tracker.send(new HitBuilders.ScreenViewBuilder().build());
+        //tracker = analytics.newTracker("UA-70767186-1");
+        //tracker.enableAutoActivityTracking(true);
+        //tracker.enableExceptionReporting(true);
+        //tracker.enableAdvertisingIdCollection(false);
+        //Log.i("GA says -----", "Setting screen name: " + name);
+        //tracker.setScreenName("Image~" + name);
+        //tracker.send(new HitBuilders.ScreenViewBuilder().build());
+        //Appended by Jay ends
 
         CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
                         .setDefaultFontPath("fonts/Ubuntu-C.ttf")
@@ -157,16 +161,25 @@ public class SplashScreen extends Activity implements QUserListner
                 {
                     //Close SplashScreenActivity.class
                     finish();
-                    //QUser user = new QUser(SplashScreen.this);
+                    QUser user = new QUser(SplashScreen.this);
                     //user.getAvailableQs();
                     //Start MainActivity.class
-                    listItems.put("Selectable Nodes", SelectableTreeFragment.class);
-                    Class<?> clazz = listItems.values().toArray(new Class<?>[]{})[0];
-                    Intent i = new Intent(SplashScreen.this, SingleFragmentActivity.class);
-                    i.putExtra(SingleFragmentActivity.FRAGMENT_PARAM, clazz);
-                    SplashScreen.this.startActivity(i);
-                    SplashScreen.this.finish();
-                    overridePendingTransition(R.layout.fadein, R.layout.fadeout);
+                    if (user.isRegistered()){
+                        listItems.put("Selectable Nodes", SelectableTreeFragment.class);
+                        Class<?> clazz = listItems.values().toArray(new Class<?>[]{})[0];
+                        Intent i = new Intent(SplashScreen.this, SingleFragmentActivity.class);
+                        i.putExtra(SingleFragmentActivity.FRAGMENT_PARAM, clazz);
+                        SplashScreen.this.startActivity(i);
+                        SplashScreen.this.finish();
+                        overridePendingTransition(R.layout.fadein, R.layout.fadeout);
+                    }
+
+                    else {
+                        Intent intent = new Intent(SplashScreen.this,qman_signup.class);
+                        startActivity(intent);
+                        SplashScreen.this.finish();
+                    }
+
                 }
             };
             //Start the timer

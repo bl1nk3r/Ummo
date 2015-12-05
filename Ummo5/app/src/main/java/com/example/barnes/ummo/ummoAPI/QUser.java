@@ -26,9 +26,9 @@ import java.net.URL;
 public class QUser
 {
     private Activity callingActivity;
-    private String uCellNumber="26876583260";
+    private String uCellNumber;
     private boolean registered = false;
-    private String uName="Sihle Mbhamali";
+    private String uName;
     private boolean mBound=false;
     private UmmoDaemon daemon;
     //private UmmoDaemon ummoDaemon;
@@ -68,8 +68,9 @@ public class QUser
 
     public void register(final String name, final String cellNumber) {
         try {
-
-            String urlString = callingActivity.getString(R.string.SERVER_URL) + "/user/register";
+            uName = name;
+            uCellNumber = cellNumber;
+                    String urlString = callingActivity.getString(R.string.SERVER_URL) + "user/register";
             final FormPoster formPoster = new FormPoster(new URL(urlString));
             formPoster.add("cellnum", cellNumber);
             formPoster.add("alias", name);
@@ -91,8 +92,14 @@ public class QUser
                         }
                         rd.close();
 
-                        String objString = response.toString();
-                        ((QUserListner) callingActivity).userRegistered(objString);
+                        final String objString = response.toString();
+                        callingActivity.runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                ((QUserListner) callingActivity).userRegistered(objString);
+                            }
+                        });
+
                         //This would mean the registration was compleate
                         //
                         //JSONObject obj = new JSONObject(objString);
@@ -102,6 +109,8 @@ public class QUser
                         sp.edit().putString(callingActivity.getString(R.string.PREF_USER_NAME), uname).apply();
                         sp.edit().putString(callingActivity.getString(R.string.PREF_USER_CELLNUMBER), cellphone).apply();
                         sp.edit().putBoolean(callingActivity.getString(R.string.PREF_USER_REGISTERED), true).apply();
+
+
 
                         //Log.d("Response",id);
 
@@ -233,6 +242,8 @@ public class QUser
             String urlString = callingActivity.getString(R.string.SERVER_URL) + "user/categories";
             final FormPoster formPoster = new FormPoster(new URL(urlString));
             //formPoster.add("uid",uCellNumber);
+            String token = PreferenceManager.getDefaultSharedPreferences(callingActivity).getString("gcmToken","token");
+            formPoster.add("token",token);
             formPoster.add("data", "data");
             Thread thread = new Thread(new Runnable() {
                 @Override

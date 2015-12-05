@@ -16,9 +16,6 @@ import android.widget.RelativeLayout;
 
 import com.example.barnes.ummo.R;
 import com.example.barnes.ummo.db.Db;
-import com.google.android.gms.analytics.GoogleAnalytics;
-import com.google.android.gms.analytics.HitBuilders;
-import com.google.android.gms.analytics.Tracker;
 
 import java.util.List;
 
@@ -34,7 +31,6 @@ public class Qfragment extends Fragment
     Context c;
     Context c_;
     private int i = -1;
-    private String name = "Ummo queue positions";
     private android.widget.ScrollView scrollView;
     public List<String> joinedq = null;
     public List<String> qPosition = null;
@@ -43,8 +39,6 @@ public class Qfragment extends Fragment
     private ProgressDialog p_Dialog;
     public static final String ARG_FRAG = "ARG_FRAG";
     //public static final String ARGFRAG = "ARG_FRAG";
-    public static GoogleAnalytics analytics;
-    public static Tracker tracker;
     static int mFrag;
     int nFrag;
 
@@ -81,17 +75,6 @@ public class Qfragment extends Fragment
         super.onCreate(savedInstanceState);
         mFrag = getArguments().getInt("ARG_FRAG");
         nFrag = getArguments().getInt("ARGFRAG");
-        analytics = GoogleAnalytics.getInstance(this.getContext());
-        analytics.setLocalDispatchPeriod(1800);
-
-        tracker = analytics.newTracker("UA-70767186-1");
-        tracker.enableAutoActivityTracking(true);
-        tracker.enableExceptionReporting(true);
-        tracker.enableAdvertisingIdCollection(false);
-        Log.i("GA says -----", "Setting screen name: " + name);
-        tracker.setScreenName("Image~" + name);
-        tracker.send(new HitBuilders.ScreenViewBuilder().build());
-
     }
 
     @Override

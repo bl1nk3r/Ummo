@@ -3,7 +3,9 @@ package com.example.barnes.ummo;
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 
 import com.example.barnes.ummo.db.Db;
@@ -243,9 +245,16 @@ public class SingleFragmentActivity extends Activity implements QUserListner
         //db.insertServiceNameQ(502, "Internet Services", 102, 401);*/
         user = new QUser(this);
         user.getCategories();
+       // Bundle b = getIntent().getExtras();
+        //Class<?> fragmentClass = (Class<?>) b.get(FRAGMENT_PARAM);
 
-        Log.e("about", "to call fuction");
-        user.startUpdatesDaemon();
+        //Fragment f = Fragment.instantiate(this, fragmentClass.getName());
+        //f.setArguments(b);
+        //getFragmentManager().beginTransaction().replace(R.id.fragment, f, fragmentClass.getName()).commit();
+        //Log.e("about", "to call function");
+
+
+        //user.startUpdatesDaemon();
     }
 }
 

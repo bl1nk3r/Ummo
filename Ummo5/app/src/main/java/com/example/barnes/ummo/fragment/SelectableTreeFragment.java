@@ -3,7 +3,9 @@ package com.example.barnes.ummo.fragment;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -19,9 +21,6 @@ import com.example.barnes.ummo.holder.IconTreeItemHolder;
 import com.example.barnes.ummo.holder.ProfileHolder;
 import com.example.barnes.ummo.holder.SelectableHeaderHolder_2;
 import com.example.barnes.ummo.holder.SelectableItemHolder;
-import com.google.android.gms.analytics.GoogleAnalytics;
-import com.google.android.gms.analytics.HitBuilders;
-import com.google.android.gms.analytics.Tracker;
 import com.software.shell.fab.ActionButton;
 import com.unnamed.b.atv.model.TreeNode;
 import com.unnamed.b.atv.view.AndroidTreeView;
@@ -43,14 +42,11 @@ import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 public class SelectableTreeFragment extends Fragment
 {
     private AndroidTreeView tView;
-    private String name = "Ummo queue category";
     Db db;
     public List<String> qServiceTypeList = null;
     public List<String> qServiceProviderName = null;
     public List<String> qServiceName = null;
     public List<String> qsJoined = null;
-    public static GoogleAnalytics analytics;
-    public static Tracker tracker;
     ActionButton actionButton;
     Context c;
 
@@ -59,25 +55,11 @@ public class SelectableTreeFragment extends Fragment
     {
         View rootView = inflater.inflate(R.layout.fragment_selectable_nodes, null, false);
         ViewGroup containerView = (ViewGroup) rootView.findViewById(R.id.container);
-
-        analytics = GoogleAnalytics.getInstance(rootView.getContext());
-        analytics.setLocalDispatchPeriod(1800);
-
-        tracker = analytics.newTracker("UA-70767186-1");
-        tracker.enableAutoActivityTracking(true);
-        tracker.enableExceptionReporting(true);
-        tracker.enableAdvertisingIdCollection(false);
-        Log.i("GA says -----", "Setting screen name: " + name);
-        tracker.setScreenName("Image~" + name);
-        tracker.send(new HitBuilders.ScreenViewBuilder().build());
-
         CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
                         .setDefaultFontPath("fonts/Ubuntu-C.ttf")
                         .setFontAttrId(R.attr.fontPath)
                         .build()
         );
-
-
 
         c = this.getActivity();
         TreeNode root = TreeNode.root();
@@ -105,8 +87,8 @@ public class SelectableTreeFragment extends Fragment
                        /* getServicePID = db.getQServicePid(qServiceProviderName.get(j));
                         string_serviceProviderid = getServicePID.get(0);
                         int_serviceProviderid = Integer.parseInt(string_serviceProviderid);
-                        qServiceName = db.getQServiceName(int_serviceProviderid);*/
-
+                        qServiceName = db.getQServiceName(int_serviceProviderid);
+                         */
 
                         if (providerObj.has("Services")){
                             JSONArray services = providerObj.getJSONArray("Services");
@@ -147,11 +129,11 @@ public class SelectableTreeFragment extends Fragment
             @Override
             public void onClick(View view) {
                 ((SingleFragmentActivity) getActivity()).getUser().updateJoinedQs();
-               /* if (qsJoined.size() > 0) {
+                if (qsJoined.size() > 0) {
 
                 } else {
                     Toast.makeText(c, "You have not joined any ques yet", Toast.LENGTH_SHORT).show();
-                }*/
+                }
             }
         });
         // = db.getAllQServiceTypesName();
@@ -179,14 +161,14 @@ public class SelectableTreeFragment extends Fragment
             else
             {
                 treeNodeList.add(new TreeNode(new IconTreeItemHolder.IconTreeItem(qServiceTypeList.get(i).toString(),R.string.ic_sd_storage)).setViewHolder(new ProfileHolder(getActivity())));
-            }*/
+            }
 
             //string_servicetypeid = getServiceTId.get(0);//id for displayed q service type
 
             //int_servicetypeid = Integer.parseInt(string_servicetypeid);
             //qServiceProviderName = db.getQServiceProviderName(int_servicetypeid);
-           /* */
-            //
+
+            */
 
         }
 
