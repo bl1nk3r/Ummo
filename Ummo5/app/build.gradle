@@ -1,4 +1,6 @@
 apply plugin: 'com.android.application'
+//Google Services Plugin
+apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdkVersion 23
@@ -31,5 +33,7 @@ dependencies {
     compile 'com.github.shell-software:fab:1.1.2'
     compile 'net.soulwolf.widget:dialogBuilder:1.0.0'
     compile 'uk.co.chrisjenx:calligraphy:2.1.0'
+    //Google Services Plugin
+    compile 'com.google.android.gms:play-services-analytics:8.3.0'
     compile project(':library')
 }

@@ -13,6 +13,9 @@ import android.widget.Toast;
 import com.example.barnes.ummo.fragment.SelectableTreeFragment;
 import com.example.barnes.ummo.ummoAPI.QUser;
 import com.example.barnes.ummo.ummoAPI.QUserListner;
+import com.google.android.gms.analytics.GoogleAnalytics;
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -26,6 +29,9 @@ import java.util.LinkedHashMap;
 public class qman_signup extends Activity implements View.OnClickListener,QUserListner{
 
     private QUser user;
+    public static GoogleAnalytics analytics;
+    public static Tracker tracker;
+    private String name = "Ummo Test SignUp";
 
     //Overides for QUSER
 
@@ -33,7 +39,7 @@ public class qman_signup extends Activity implements View.OnClickListener,QUserL
     @Override
     public void userRegistered(String string) {
         final LinkedHashMap<String, Class<?>> listItems = new LinkedHashMap<>();
-        Toast.makeText(this,"Thank you for signing up "+user.getName(),Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Thank you, " + user.getName() + " for signing up ",Toast.LENGTH_LONG).show();
         listItems.put("Selectable Nodes", SelectableTreeFragment.class);
         Class<?> clazz = listItems.values().toArray(new Class<?>[]{})[0];
         Intent i = new Intent(this, SingleFragmentActivity.class);
@@ -41,6 +47,7 @@ public class qman_signup extends Activity implements View.OnClickListener,QUserL
         this.startActivity(i);
         this.finish();
         overridePendingTransition(R.layout.fadein, R.layout.fadeout);
+        tracker.send(new HitBuilders.EventBuilder().setCategory("Action").setAction("User successfully registered...").build());
     }
 
     @Override
@@ -146,6 +153,8 @@ public class qman_signup extends Activity implements View.OnClickListener,QUserL
             user.register(ummoAliasStr, ummoCellVal);
             /*Intent intent = new Intent(this, Sin.class);
             startActivity(intent);*/
+
+            tracker.send(new HitBuilders.EventBuilder().setCategory("Action").setAction("Clicked 'SignUp'").build());
         }
     }
 
@@ -161,17 +170,16 @@ public class qman_signup extends Activity implements View.OnClickListener,QUserL
         ummoTestID = (EditText) findViewById(R.id.qman_testid);
 
         signupButton.setOnClickListener(this);
+
+        analytics = GoogleAnalytics.getInstance(this);
+        analytics.setLocalDispatchPeriod(1800);
+
+        tracker = analytics.newTracker("UA-70767186-1");
+        tracker.enableAutoActivityTracking(true);
+        tracker.enableExceptionReporting(true);
+        tracker.enableAdvertisingIdCollection(false);
+        Log.i("GA says -----", "Setting screen name: " + name);
+        tracker.setScreenName("Image~" + name);
+        tracker.send(new HitBuilders.ScreenViewBuilder().build());
     }
-
-    /*public void onSignUpClick (View v) {
-        if (v.getId() == R.id.qman_signup_button){
-
-            String ummoAliasStr = ummoAlias.getText().toString();
-            String ummoCellStr = ummoCell.getText().toString();
-            String ummoTestIDStr = ummoTestID.getText().toString();
-
-            Intent intent = new Intent(this, SelectableTreeFragment.class);
-            startActivity(intent);
-        }
-    }*/
 }

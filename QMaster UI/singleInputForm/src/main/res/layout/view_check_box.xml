@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/keyline"
+    android:paddingRight="@dimen/keyline_card"
+    android:paddingStart="@dimen/keyline"
+    android:paddingEnd="@dimen/keyline_card">
+    <com.heinrichreimersoftware.singleinputform.widgets.CheckBoxCompat
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:singleLine="true"
+        android:gravity="start|center_vertical"
+        android:padding="@dimen/keyline_card"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+        android:textColor="?android:attr/textColorPrimaryInverse"
+        android:buttonTint="?android:attr/textColorPrimaryInverse"
+        android:text="jhdjktdjk" />
+</FrameLayout>

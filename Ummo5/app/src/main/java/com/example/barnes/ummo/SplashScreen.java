@@ -14,9 +14,11 @@ import android.widget.Toast;
 import com.example.barnes.ummo.fragment.SelectableTreeFragment;
 import com.example.barnes.ummo.ummoAPI.QUser;
 import com.example.barnes.ummo.ummoAPI.QUserListner;
-//import com.google.android.gms.analytics.GoogleAnalytics;
-//import com.google.android.gms.analytics.HitBuilders;
-///i//mport com.google.android.gms.analytics.Tracker;
+import com.google.android.gms.analytics.GoogleAnalytics;
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.GoogleAnalytics;
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 
 import java.util.LinkedHashMap;
 import java.util.Timer;
@@ -31,8 +33,8 @@ public class SplashScreen extends Activity implements QUserListner
 {
     private ProgressDialog p_Dialog;
     //Appended by Jay begins
-   // public static GoogleAnalytics analytics;
-   // public static Tracker tracker;
+    public static GoogleAnalytics analytics;
+    public static Tracker tracker;
     private String name = "Ummo Splash";
     //Appended by Jay ends
     final LinkedHashMap<String, Class<?>> listItems = new LinkedHashMap<>();
@@ -128,24 +130,25 @@ public class SplashScreen extends Activity implements QUserListner
         Log.e("Error Getting Qs",err);
     }
 
-    //End Ovrriding Interface
+    //End Overriding Interface
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //Appended by Jay begins
-        //analytics = GoogleAnalytics.getInstance(this);
-        //analytics.setLocalDispatchPeriod(1800);
+        analytics = GoogleAnalytics.getInstance(this);
+        analytics.setLocalDispatchPeriod(1800);
 
-        //tracker = analytics.newTracker("UA-70767186-1");
-        //tracker.enableAutoActivityTracking(true);
-        //tracker.enableExceptionReporting(true);
-        //tracker.enableAdvertisingIdCollection(false);
-        //Log.i("GA says -----", "Setting screen name: " + name);
-        //tracker.setScreenName("Image~" + name);
-        //tracker.send(new HitBuilders.ScreenViewBuilder().build());
+        tracker = analytics.newTracker("UA-70767186-1");
+        tracker.enableAutoActivityTracking(true);
+        tracker.enableExceptionReporting(true);
+        tracker.enableAdvertisingIdCollection(false);
+        Log.i("GA says -----", "Setting screen name: " + name);
+        tracker.setScreenName("Image~" + name);
+        tracker.send(new HitBuilders.ScreenViewBuilder().build());
         //Appended by Jay ends
+
 
         CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
                         .setDefaultFontPath("fonts/Ubuntu-C.ttf")
@@ -153,7 +156,7 @@ public class SplashScreen extends Activity implements QUserListner
                         .build()
         );
         Timer RunSplash = new Timer();
-        if (isInternetOn() == true)
+        if (isInternetOn())
         {
             TimerTask ShowSplash = new TimerTask() {
                 @Override
@@ -204,7 +207,7 @@ public class SplashScreen extends Activity implements QUserListner
         else if ( connec.getNetworkInfo(0).getState() == android.net.NetworkInfo.State.DISCONNECTED ||
                 connec.getNetworkInfo(1).getState() == android.net.NetworkInfo.State.DISCONNECTED  )
         {
-            Toast.makeText(this, " Not internet Connection ", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, " No internet Connection... ", Toast.LENGTH_LONG).show();
             return false;
         }
         return false;
@@ -220,7 +223,7 @@ public class SplashScreen extends Activity implements QUserListner
         {
             super.onPreExecute();
             p_Dialog = new ProgressDialog(SplashScreen.this);
-            p_Dialog.setMessage("Loading Ques ...");
+            p_Dialog.setMessage("Loading Queues ...");
             p_Dialog.setIndeterminate(false);
             p_Dialog.setCancelable(false);
             p_Dialog.show();

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="YourThemeForSingleInputFormActivity" parent="Theme.AppCompat.Light.NoActionBar">
+
+        <!-- Used for: input field background -->
+        <item name="colorPrimary">@color/material_bordeaux_500</item>
+
+        <!-- Used for: form progress color, status bar color (API 21+) -->
+        <item name="colorPrimaryDark">@color/material_bordeaux_700</item>
+
+        <!-- Used for: title text color, error text color -->
+        <item name="android:textColorPrimary">@color/material_bordeaux_800</item>
+
+        <!-- Used for: details text color, step indicator text color -->
+        <item name="android:textColorSecondary">@color/material_black_54</item>
+
+        <!-- Used for: input text color, input widget color -->
+        <item name="android:textColorPrimaryInverse">@color/material_white_100</item>
+
+        <!-- Used for: input widget color -->
+        <item name="android:textColorSecondaryInverse">@color/material_white_70</item>
+
+    </style>
+</resources>

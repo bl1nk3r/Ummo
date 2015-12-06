@@ -1,7 +1,13 @@
 <resources>
     <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="material_drawer_padding_half">4dp</dimen>
+    <dimen name="material_drawer_persistent_height">48dp</dimen>
+    <dimen name="material_drawer_persistent_height_icon">32dp</dimen>
+
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
-    <dimen name="app_bar_height">180dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+
+    <dimen name="list_item_padding_sides">16dp</dimen>
+    <dimen name="list_item_height">80dp</dimen>
 </resources>

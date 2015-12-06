@@ -815,6 +815,6 @@
     <string name="PREF_USER_CELLNUMBER">cell_numb_preference</string>
     <string name="PREF_USER_NAME">user_name_preference</string>
 
-    <string name="gcm_defaultSenderId">756312646384</string>
+    <!--string name="gcm_defaultSenderId">756312646384</string-->
     <string name="PREF_CATEGORIES">categoriesJSON</string>
 </resources>

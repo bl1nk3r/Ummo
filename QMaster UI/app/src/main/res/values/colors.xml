@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
-    <color name="colorAccent">#FF4081</color>
+    <color name="colorPrimary">#6ac9e0</color>
+    <color name="colorPrimaryDark">#6ac9e0</color>
+    <color name="colorPrimaryLight">#C4C9E8</color>
+    <color name="colorAccent">#02A8F3</color>
+    <!-- overwrite the selected colors because the primary color is to dark -->
+    <color name="material_drawer_selected_text">#536EEA</color>
+    <color name="material_drawer_dark_selected_text">#536EEA</color>
+
+    <color name="primary">#DA4436</color>
+    <color name="primary_dark">#B93528</color>
+    <color name="accent">#232323</color>
+    <color name="gray_background">#757575</color>
+    <color name="yellow">#FFBB33</color>
 </resources>

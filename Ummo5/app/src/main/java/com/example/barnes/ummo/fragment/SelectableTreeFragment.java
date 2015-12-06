@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -21,6 +22,9 @@ import com.example.barnes.ummo.holder.IconTreeItemHolder;
 import com.example.barnes.ummo.holder.ProfileHolder;
 import com.example.barnes.ummo.holder.SelectableHeaderHolder_2;
 import com.example.barnes.ummo.holder.SelectableItemHolder;
+import com.google.android.gms.analytics.GoogleAnalytics;
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 import com.software.shell.fab.ActionButton;
 import com.unnamed.b.atv.model.TreeNode;
 import com.unnamed.b.atv.view.AndroidTreeView;
@@ -39,8 +43,7 @@ import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
  * Created by barnes on 8/6/15.
  */
 
-public class SelectableTreeFragment extends Fragment
-{
+public class SelectableTreeFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
     private AndroidTreeView tView;
     Db db;
     public List<String> qServiceTypeList = null;
@@ -48,6 +51,11 @@ public class SelectableTreeFragment extends Fragment
     public List<String> qServiceName = null;
     public List<String> qsJoined = null;
     ActionButton actionButton;
+    //Appended by Jay
+    private SwipeRefreshLayout swipeRefreshLayout;
+    public static GoogleAnalytics analytics;
+    public static Tracker tracker;
+    private String name = "Ummo Categories";
     Context c;
 
     @Override
@@ -55,6 +63,21 @@ public class SelectableTreeFragment extends Fragment
     {
         View rootView = inflater.inflate(R.layout.fragment_selectable_nodes, null, false);
         ViewGroup containerView = (ViewGroup) rootView.findViewById(R.id.container);
+        //Appended by Jay
+        swipeRefreshLayout = (SwipeRefreshLayout) rootView.findViewById(R.id.swipeRefCategory);
+        swipeRefreshLayout.setOnRefreshListener(this);
+        //analytics = GoogleAnalytics.getInstance(ge);
+        //analytics.setLocalDispatchPeriod(1800);
+
+        //tracker = analytics.newTracker("UA-70767186-1");
+        //tracker.enableAutoActivityTracking(true);
+        //tracker.enableExceptionReporting(true);
+        //tracker.enableAdvertisingIdCollection(false);
+        //Log.i("GA says -----", "Setting screen name: " + name);
+        //tracker.setScreenName("Image~" + name);
+        //tracker.send(new HitBuilders.ScreenViewBuilder().build());
+        //Appended by Jay ends
+
         CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
                         .setDefaultFontPath("fonts/Ubuntu-C.ttf")
                         .setFontAttrId(R.attr.fontPath)
@@ -69,6 +92,11 @@ public class SelectableTreeFragment extends Fragment
             ArrayList<TreeNode> treeNodeList2 = new ArrayList<>();
             ArrayList<JSONObject> serviceNameColl = new ArrayList<>();
             JSONArray array= new JSONArray(string);
+
+            if (swipeRefreshLayout.isRefreshing()) {
+                swipeRefreshLayout.setRefreshing(false);
+            }
+
             qServiceTypeList = new ArrayList<String>();
             for (int i =0; i<array.length();i++){
                 JSONObject object = array.getJSONObject(i);
@@ -102,8 +130,6 @@ public class SelectableTreeFragment extends Fragment
                             customfillFolder(treeNodeList2.get(j), serviceNameColl, "qServiceProviderName.get(i)");
                         }
                     }
-
-
 
                 }
 
@@ -215,5 +241,26 @@ public class SelectableTreeFragment extends Fragment
     {
         super.onSaveInstanceState(outState);
         outState.putString("tState", tView.getSaveState());
+    }
+
+    //Appended by Jay
+    @Override
+    public void onRefresh() {
+        String string = ((SingleFragmentActivity)getActivity()).getCategoriesJSON();
+        //tracker.send(new HitBuilders.EventBuilder().setCategory("Action").setAction("User swipe-refreshed categories...").build());
+        JSONArray array= null;
+
+        try {
+            array = new JSONArray(string);
+            for (int i =0; i<array.length();i++) {
+                JSONObject object = array.getJSONObject(i);
+                String categoryName = object.getString("name");
+                Toast.makeText(getActivity(), " Categories: " + categoryName, Toast.LENGTH_LONG).show();
+            }
+            if (swipeRefreshLayout.isRefreshing()) swipeRefreshLayout.setRefreshing(false);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
     }
 }
