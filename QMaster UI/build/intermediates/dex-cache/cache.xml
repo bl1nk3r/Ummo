@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/home/blinker/Projects/Ummo/QMaster UI/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="57ae0d750ff83f0c738d21720224ac7ea866a094">
+        <dex dex="/home/blinker/Projects/Ummo/QMaster UI/app/build/intermediates/pre-dexed/debug/classes-8e6528fab09fda18672787eb4e483604ee028aa6.jar" />
+    </item>
+    <item
+        jar="/home/blinker/Projects/Ummo/QMaster UI/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.0/jars/libs/internal_impl-23.1.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="8716243bf04bae8d6c9ca94d27b9a9be7236f0a3">
+        <dex dex="/home/blinker/Projects/Ummo/QMaster UI/app/build/intermediates/pre-dexed/debug/internal_impl-23.1.0-e97cc53241b8af89dae92afb13480204cc81fa3c.jar" />
+    </item>
+    <item
+        jar="/home/blinker/.gradle/caches/modules-2/files-2.1/com.github.bumptech.glide/glide/3.6.1/86b122e640af09b0723e1fa44083c354ba6d9089/glide-3.6.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="86b122e640af09b0723e1fa44083c354ba6d9089">
+        <dex dex="/home/blinker/Projects/Ummo/QMaster UI/app/build/intermediates/pre-dexed/debug/glide-3.6.1-69413e283f6cbe064f335d338dccd87903167475.jar" />
+    </item>
+    <item
+        jar="/home/blinker/Projects/Ummo/QMaster UI/app/build/intermediates/exploded-aar/com.mikepenz/materialize/0.2.7/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="fa4722c731f92df41532b4e21bbd6b015226cd23">
+        <dex dex="/home/blinker/Projects/Ummo/QMaster UI/app/build/intermediates/pre-dexed/debug/classes-7109bbed871a514d8797303749fb0df53e389e4f.jar" />
+    </item>
+    <item
+        jar="/home/blinker/Projects/Ummo/QMaster UI/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="ddde541c289c8b816a8f8fd6c325d80788c522a6">
+        <dex dex="/home/blinker/Projects/Ummo/QMaster UI/app/build/intermediates/pre-dexed/debug/classes-4556a36a6b6956f0a8f5cf76fe070c9be0698f31.jar" />
+    </item>
+    <item
+        jar="/home/blinker/Projects/Ummo/QMaster UI/app/build/intermediates/exploded-aar/com.mikepenz/crossfadedrawerlayout/0.0.1-SNAPSHOT/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="98696b5f503726674b92af3d77b801a837e24f07">
+        <dex dex="/home/blinker/Projects/Ummo/QMaster UI/app/build/intermediates/pre-dexed/debug/classes-314b366b44bc45e8f29d174e278e83519150c089.jar" />
+    </item>
+    <item
+        jar="/home/blinker/Projects/Ummo/QMaster UI/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.1.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="3f151e49c316a5ab2c065969a3b3b55ef9b393fc">
+        <dex dex="/home/blinker/Projects/Ummo/QMaster UI/app/build/intermediates/pre-dexed/debug/classes-b31168c0d4ab139ff2be71b7a611f560e675035e.jar" />
+    </item>
+    <item
+        jar="/home/blinker/Projects/Ummo/QMaster UI/app/build/intermediates/exploded-aar/com.android.support/cardview-v7/23.1.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="d96886efea7cc74fbb3abd0e3b51d5638fc57be0">
+        <dex dex="/home/blinker/Projects/Ummo/QMaster UI/app/build/intermediates/pre-dexed/debug/classes-2c86ca512f3e8074b786431498931f0b8d3ff3b0.jar" />
+    </item>
+    <item
+        jar="/home/blinker/.gradle/caches/modules-2/files-2.1/com.squareup.picasso/picasso/2.5.2/7446d06ec8d4f7ffcc53f1da37c95f200dcb9387/picasso-2.5.2.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
+        <dex dex="/home/blinker/Projects/Ummo/QMaster UI/app/build/intermediates/pre-dexed/debug/picasso-2.5.2-a20d411afc6f570d9b50e3f7cbb542b167e44aee.jar" />
+    </item>
+    <item
+        jar="/home/blinker/Projects/Ummo/QMaster UI/app/build/intermediates/exploded-aar/com.android.support/design/23.1.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="19026d31f5d3ae868db81319671a642be5fbba08">
+        <dex dex="/home/blinker/Projects/Ummo/QMaster UI/app/build/intermediates/pre-dexed/debug/classes-5e29c09be3411c8940f02d6fd5d44a1bc83d41ee.jar" />
+    </item>
+    <item
+        jar="/home/blinker/.gradle/caches/modules-2/files-2.1/com.nineoldandroids/library/2.4.0/e9b63380f3a242dbdbf103a2355ad7e43bad17cb/library-2.4.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="e9b63380f3a242dbdbf103a2355ad7e43bad17cb">
+        <dex dex="/home/blinker/Projects/Ummo/QMaster UI/app/build/intermediates/pre-dexed/debug/library-2.4.0-824a69546edc8af23f93b451d5c38cc2179a9da7.jar" />
+    </item>
+    <item
+        jar="/home/blinker/Projects/Ummo/QMaster UI/app/build/intermediates/exploded-aar/com.mikepenz/octicons-typeface/3.0.0.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="a3332adcdc1cdd7ed9a2f6a90f322c0e0c89ab91">
+        <dex dex="/home/blinker/Projects/Ummo/QMaster UI/app/build/intermediates/pre-dexed/debug/classes-fc118b2e6dc8016a7b0393bfafb4fe4528f1152c.jar" />
+    </item>
+    <item
+        jar="/home/blinker/Projects/Ummo/QMaster UI/app/build/intermediates/exploded-aar/QMaster UI/library/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="99fcc97fb175f1db237ddbbce30ad9e816aeea0a">
+        <dex dex="/home/blinker/Projects/Ummo/QMaster UI/app/build/intermediates/pre-dexed/debug/classes-e5988ee704c907ca04e9d49b4d94608d7e5cf721.jar" />
+    </item>
+    <item
+        jar="/home/blinker/Projects/Ummo/QMaster UI/app/build/intermediates/exploded-aar/com.mikepenz/iconics-core/1.7.9/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="8e4f6baed16f20ba345207fd677863df7da2f99a">
+        <dex dex="/home/blinker/Projects/Ummo/QMaster UI/app/build/intermediates/pre-dexed/debug/classes-6421d74ff07e2e47e87f438759aecbf6a4c495d8.jar" />
+    </item>
+    <item
+        jar="/media/blinker/cbed5e40-9edc-4d52-bdd7-8f4721daf5a8/home/blinker/Android/Sdk/extras/android/m2repository/com/android/support/support-annotations/23.1.0/support-annotations-23.1.0.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="92e3fc113ec3ee36b64603a38857b95700025633">
+        <dex dex="/home/blinker/Projects/Ummo/QMaster UI/app/build/intermediates/pre-dexed/debug/support-annotations-23.1.0-65e2d98a089128daf76baeccbae51042a23d4938.jar" />
+    </item>
+    <item
+        jar="/home/blinker/Projects/Ummo/QMaster UI/app/build/intermediates/exploded-aar/com.mikepenz/google-material-typeface/1.2.0.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="b646d398bbae664de1bf476c308a2b39d6d2651c">
+        <dex dex="/home/blinker/Projects/Ummo/QMaster UI/app/build/intermediates/pre-dexed/debug/classes-5d09059f9331c157984c56552592c0dce0929b35.jar" />
+    </item>
+    <item
+        jar="/home/blinker/Projects/Ummo/QMaster UI/app/build/intermediates/exploded-aar/com.mikepenz/aboutlibraries/5.2.5/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="e65c68c7c80ec9d1e7bc108a9cf88211af97b77c">
+        <dex dex="/home/blinker/Projects/Ummo/QMaster UI/app/build/intermediates/pre-dexed/debug/classes-9108c2143faab1dad1b8e189f62f6a1770ee36f5.jar" />
+    </item>
+    <item
+        jar="/home/blinker/Projects/Ummo/QMaster UI/app/build/intermediates/exploded-aar/org.adw.library/discrete-seekbar/1.0.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="3e2965bae48affdd6dcd3f87cd525a988ade1250">
+        <dex dex="/home/blinker/Projects/Ummo/QMaster UI/app/build/intermediates/pre-dexed/debug/classes-01e0be09e2502972968ac1447909f7972adcbcd0.jar" />
+    </item>
+    <item
+        jar="/home/blinker/Projects/Ummo/QMaster UI/app/build/intermediates/exploded-aar/QMaster UI/library_swipe/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="b415d48bd6f4fd61eb8efe64143da6d6b6d1bb21">
+        <dex dex="/home/blinker/Projects/Ummo/QMaster UI/app/build/intermediates/pre-dexed/debug/classes-6b503f7d009327ffa603fcf407a93692f037f0bd.jar" />
+    </item>
+    <item
+        jar="/home/blinker/Projects/Ummo/QMaster UI/app/build/intermediates/exploded-aar/com.mikepenz/fontawesome-typeface/4.4.0.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="e8ad61c604470ee6933c21ae0aefcf9ee03c3911">
+        <dex dex="/home/blinker/Projects/Ummo/QMaster UI/app/build/intermediates/pre-dexed/debug/classes-f3010c43d9bbf64a6062b5ac2af3e2f208bc4f71.jar" />
+    </item>
+    <item
+        jar="/home/blinker/Projects/Ummo/QMaster UI/app/build/intermediates/exploded-aar/com.github.flavienlaurent.datetimepicker/library/0.0.2/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="2fc859b7abb78d29169f6a582b45cbe1f3f1a4cc">
+        <dex dex="/home/blinker/Projects/Ummo/QMaster UI/app/build/intermediates/pre-dexed/debug/classes-d097e20b827eb40b2c67411c4c7d72dcdb3cf5e5.jar" />
+    </item>
+    <item
+        jar="/home/blinker/Projects/Ummo/QMaster UI/app/build/intermediates/exploded-aar/com.mikepenz/crossfader/1.1.3/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="19f11c223429f009267b3a1a64da6a4a0998d888">
+        <dex dex="/home/blinker/Projects/Ummo/QMaster UI/app/build/intermediates/pre-dexed/debug/classes-02c731943db111829ae94114f1da852d6364e640.jar" />
+    </item>
+    <item
+        jar="/home/blinker/Projects/Ummo/QMaster UI/app/build/intermediates/exploded-aar/QMaster UI/singleInputForm/unspecified/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="45044d5c8c58d6c49f3041a8f47cd20be86397a0">
+        <dex dex="/home/blinker/Projects/Ummo/QMaster UI/app/build/intermediates/pre-dexed/debug/classes-7f28ca38f8dace9fb75f956399c442dac4607fa6.jar" />
+    </item>
+
+</items>
