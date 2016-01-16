@@ -5,7 +5,8 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -13,19 +14,22 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.example.barnes.ummo.R;
 import com.example.barnes.ummo.db.Db;
+import com.example.barnes.ummo.ummoAPI.JoinedQ;
 
 import java.util.List;
 
+import butterknife.ButterKnife;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 /**
  * Created by barnes on 8/26/15.
  */
-public class Qfragment extends Fragment
+public class Qfragment extends BaseActivityFragment
 {
     Db db;
     Context c;
@@ -41,14 +45,16 @@ public class Qfragment extends Fragment
     //public static final String ARGFRAG = "ARG_FRAG";
     static int mFrag;
     int nFrag;
+    static JoinedQ _joinedQ;
 
-    public static Qfragment newInstance(int frag, int frag_n)
+    public static Qfragment newInstance(int frag, int frag_n,JoinedQ joinedQ)
     {
         Bundle args = new Bundle();
         args.putInt(ARG_FRAG, frag);
         args.putInt("ARGFRAG", frag_n);
         Qfragment fragment = new Qfragment();
         fragment.setArguments(args);
+        _joinedQ = joinedQ;
         return fragment;
     }
 
@@ -75,11 +81,14 @@ public class Qfragment extends Fragment
         super.onCreate(savedInstanceState);
         mFrag = getArguments().getInt("ARG_FRAG");
         nFrag = getArguments().getInt("ARGFRAG");
+        //((AppCompatActivity)setUpToolbarWithTitle(getString(R.string.app_name), true));
+        ButterKnife.bind(getActivity());
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
     {
+        enterFromBottomAnimation();
         View view = LayoutInflater.from(container.getContext()).inflate(R.layout.q_list_items, container, false);
         View view_ = LayoutInflater.from(container.getContext()).inflate(R.layout.q, container, false);
         CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
@@ -87,6 +96,18 @@ public class Qfragment extends Fragment
                         .setFontAttrId(R.attr.fontPath)
                         .build()
         );
+        Toolbar toolbar = (Toolbar) view.findViewById(R.id.toolbar_actionbar_);
+        ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
+        //getActivity().setTitle("mmo");
+        toolbar.setTitle("mmo");
+        toolbar.setLogo(R.mipmap.ummo_logo);
+        //toolbar.setNavigationIcon(R.mipmap.ummo_logo);
+        //toolbar.setLogo(R.mipmap.ummo_logo);
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayShowHomeEnabled(true);
+        ((AppCompatActivity) getActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //setUpToolbarWithTitle("mmo",true);
+        TextView tv = ((TextView)view.findViewById(R.id.man_one_text));
+        tv.setText(_joinedQ.getMyAlphanumCode());
         String lastNumber;
         c_ = view_.getContext();
         c = view.getContext();
@@ -96,20 +117,19 @@ public class Qfragment extends Fragment
         Log.e("nFrag Position", "" + nFrag);
         Log.e("mFrag Position", "" + mFrag);
         joinedq = db.getQNameJoinedFromTabPosition(mFrag);
-        String qname = joinedq.get(0).toString();
-        qPosition = db.getQPositionJoined(qname);
-        String pos = qPosition.get(0).toString();
-        num = pos;
-        lastNumber = num.substring(num.length() - 1);
-        db.close();
-
+        //String qname = joinedq.get(0).toString();
+        //qPosition*onJoined(qname);
+        //String pos = qPosition.get(0).toString();
+        //num = pos;
+        //lastNumber = num.substring(num.length() - 1);
+        //db.close();
         Button man_Q_1 = (Button)view.findViewById(R.id.man_one);
         Button man_Q_2 = (Button)view.findViewById(R.id.man_two);
         Button man_Q_3 = (Button)view.findViewById(R.id.man_three);
         Button man_Q_4 = (Button)view.findViewById(R.id.man_four);
         Button man_Q_5 = (Button)view.findViewById(R.id.man_five);
-
-        if (lastNumber.equals("0"))
+        man_Q_1.setText(_joinedQ.getMyPos());
+      /*  if (lastNumber.equals("0"))
         {
             loadQinfo(man_Q_5, num);
         }
@@ -149,7 +169,7 @@ public class Qfragment extends Fragment
         {
             loadQinfo(man_Q_4, num);
         }
-        db.close();
+        db.close();*/
         return view;
     }
 
@@ -170,6 +190,23 @@ public class Qfragment extends Fragment
         return super.onOptionsItemSelected(item);
     }
 
+    protected void exitToBottomAnimation()
+    {
+        getActivity().overridePendingTransition(R.anim.activity_no_animation, R.anim.activity_close_translate_to_bottom);
+    }
+
+    protected void enterFromBottomAnimation()
+    {
+        getActivity().overridePendingTransition(R.anim.activity_open_translate_from_bottom, R.anim.activity_no_animation);
+    }
+
+    @Override
+    public void onPause()
+    {
+        exitToBottomAnimation();
+        super.onPause();
+    }
+
     public void dialog(Context context, final String text, final String position)
     {
         final Context c = context;
@@ -178,7 +215,6 @@ public class Qfragment extends Fragment
         pDialog = new SweetAlertDialog(context, SweetAlertDialog.PROGRESS_TYPE)
                 .setTitleText(" "+text)
                 .setContentText("Loading...");
-
         pDialog.show();
         pDialog.setCancelable(false);
         new CountDownTimer(800 * 7, 800)
@@ -210,7 +246,6 @@ public class Qfragment extends Fragment
                         break;
                 }
             }
-
             public void onFinish()
             {
                 i = -1;

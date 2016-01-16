@@ -51,7 +51,6 @@
             app:iconColor="#12558C"
             app:iconFont="fonts/material-icon-font.ttf"
             app:iconSize="16dp" />
-
         <View
             android:id="@+id/bot_line"
             android:background="#12558C"
@@ -59,7 +58,6 @@
             android:layout_width="1dp"
             android:layout_height="16dp" />
     </LinearLayout>
-
 
     <TextView
         android:layout_centerVertical="true"

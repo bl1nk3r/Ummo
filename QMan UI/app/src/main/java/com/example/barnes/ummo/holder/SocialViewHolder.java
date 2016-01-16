@@ -39,23 +39,21 @@ public class SocialViewHolder extends TreeNode.BaseNodeViewHolder<SocialViewHold
 
         TextView sizeText = (TextView) view.findViewById(R.id.size);
         sizeText.setText(r.nextInt(10) + " items");
-
         return view;
     }
 
     @Override
-    public void toggle(boolean active) {
+    public void toggle(boolean active)
+    {
     }
 
-
-    public static class SocialItem {
+    public static class SocialItem
+    {
         public int icon;
-
         public SocialItem(int icon) {
             this.icon = icon;
         }
         // rest will be hardcoded
     }
-
 }
 

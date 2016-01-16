@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.github.ksoichiro.android.observablescrollview.ObservableScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:uber="http://schemas.android.com/tools"
+    android:id="@+id/scrollView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_marginLeft="@dimen/viewpager_margin_fix"
+        android:layout_marginRight="@dimen/viewpager_margin_fix"
+        android:orientation="vertical">
+        <include layout="@layout/hvp_header_placeholder"/>
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="@color/appleWhite">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="25dp"
+                    android:text="TITLE"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/man_one_text"
+                    android:layout_marginBottom="5dp"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="25dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:text="xsder343"
+                    android:textSize="30sp"
+                    android:textAllCaps="true"
+                    android:textStyle="bold|italic"/>
+
+                <ScrollView
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:id="@+id/q_position"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_below="@+id/man_one_text"
+                    android:layout_gravity="center_horizontal">
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal">
+                        <!--com.uber.sdk.android.rides.RequestButton
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_centerHorizontal="true"
+                            android:id="@+id/man_one"
+                            uber:client_id="clientId"/-->
+                        <Button
+                            android:id="@+id/man_one"
+                            android:layout_centerHorizontal="true"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:background="@drawable/button_action_ummoblue"
+                            android:textColor="@color/white"/>
+
+                        <Button
+                            android:id="@+id/man_two"
+                            android:layout_centerHorizontal="true"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_below="@+id/man_one"
+                            android:background="@drawable/button_action_ummoblue"
+                            android:textColor="@color/white"/>
+
+                        <Button
+                            android:id="@+id/man_three"
+                            android:layout_centerHorizontal="true"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_below="@+id/man_two"
+                            android:background="@drawable/button_action_ummoblue"
+                            android:textColor="@color/white"/>
+
+                        <Button
+                            android:id="@+id/man_four"
+                            android:layout_centerHorizontal="true"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_below="@+id/man_three"
+                            android:background="@drawable/button_action_ummoblue"
+                            android:textColor="@color/white"/>
+
+                        <Button
+                            android:id="@+id/man_five"
+                            android:layout_centerHorizontal="true"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_below="@+id/man_four"
+                            android:background="@drawable/button_action_ummoblue"
+                            android:textColor="@color/white"/>
+                    </RelativeLayout>
+                </ScrollView>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+    </LinearLayout>
+</com.github.ksoichiro.android.observablescrollview.ObservableScrollView>

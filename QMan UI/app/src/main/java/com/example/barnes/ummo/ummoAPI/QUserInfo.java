@@ -1,13 +1,10 @@
 package com.example.barnes.ummo.ummoAPI;
 
-import com.example.barnes.ummo.db.Db;
-
 /**
  * Created by barnes on 10/4/15.
  */
 public class QUserInfo
 {
-    Db db;
     String qcategoryid;
     String qcategoryname;
     String qserviceproviderid;
@@ -19,8 +16,6 @@ public class QUserInfo
     public QUserInfo(String qcategoryid, String qcategoryname, String qserviceproviderid,
                      String qserviceprovidername, String qserviceid, String qservicename, String userCellNumber)
     {
-        //db = new Db(this.get);
-        //db.open();
         this.setQcategoryid(qcategoryid);
         this.setQcategoryname(qcategoryname);
         this.setQServiceproviderid(qserviceproviderid);

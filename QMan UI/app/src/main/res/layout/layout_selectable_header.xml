@@ -27,21 +27,13 @@
         app:iconText="@string/ic_keyboard_arrow_right"
         app:iconColor="#12558C"
         app:iconFont="fonts/material-icon-font.ttf"
-        app:iconSize="20dp" />
+        app:iconSize="15dp" />
 
-    <com.github.johnkil.print.PrintView
-        android:layout_marginLeft="5dp"
-        android:layout_alignWithParentIfMissing="true"
+    <com.github.ivbaranov.mli.MaterialLetterIcon
         android:id="@+id/icon"
-        android:layout_toRightOf="@id/arrow_icon"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:iconText="@string/ic_email"
-        app:iconColor="#12558C"
-        app:iconFont="fonts/fontawesome-webfont.ttf"
-        app:iconSize="24dp" />
+        android:layout_width="@dimen/list_item_avatar_size"
+        android:layout_height="@dimen/list_item_avatar_size"
+        android:layout_marginRight="16dp" />
 
     <TextView
         android:layout_marginRight="10dp"

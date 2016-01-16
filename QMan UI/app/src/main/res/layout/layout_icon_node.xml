@@ -6,7 +6,6 @@
     android:background="?android:attr/selectableItemBackground"
     android:layout_height="match_parent">
 
-
     <com.github.johnkil.print.PrintView
         android:layout_alignParentLeft="true"
         android:id="@+id/arrow_icon"
@@ -34,7 +33,7 @@
 
     <TextView
         android:layout_centerVertical="true"
-        android:textSize="16sp"
+        android:textSize="10sp"
         android:layout_marginLeft="10dp"
         android:layout_toRightOf="@+id/icon"
         android:layout_toLeftOf="@+id/buttonsContainer"

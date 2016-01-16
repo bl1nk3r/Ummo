@@ -8,7 +8,6 @@
     android:background="?android:attr/selectableItemBackground"
     android:layout_height="match_parent">
 
-
     <com.github.johnkil.print.PrintView
         android:layout_alignParentLeft="true"
         android:id="@+id/arrow_icon"
@@ -100,9 +99,6 @@
                 app:iconFont="fonts/material-icon-font.ttf"
                 app:iconSize="9dp" />
 
-
         </LinearLayout>
     </LinearLayout>
-
-
 </RelativeLayout>

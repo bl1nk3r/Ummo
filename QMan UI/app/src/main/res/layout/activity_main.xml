@@ -1,31 +1,34 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    tools:context=".MainActivity"
-    android:background="#6ac9e0">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:fitsSystemWindows="true">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        tools:background="@color/ummo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
     <TextView
-        android:id="@+id/ummoLogo"
-        android:text="Ummo"
-        android:layout_width="wrap_content"
+        android:id="@+id/empty_qlist"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:textColor="#FFFFFF"
-        android:textSize="30sp"/>
+        android:text="Empty Queue List..."
+        android:layout_gravity="center_vertical"
+        android:textSize="40sp"
+        android:padding="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="80dp"
+        android:textColor="@color/black"
+        android:visibility="gone"/>
 
-    <ProgressBar
-        android:id="@+id/ProgressBar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/ummoLogo"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true" >
-    </ProgressBar>
-
-</RelativeLayout>
+    <com.github.florent37.hollyviewpager.HollyViewPager
+        android:id="@+id/hollyViewPager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:hvp_headerHeight="150dp" />
+</LinearLayout>

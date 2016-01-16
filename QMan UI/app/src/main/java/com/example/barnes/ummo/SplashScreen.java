@@ -21,14 +21,43 @@ import java.util.TimerTask;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
+//import com.google.android.gms.analytics.GoogleAnalytics;
+//import com.google.android.gms.analytics.HitBuilders;
+///i//mport com.google.android.gms.analytics.Tracker;
+
 /**
  * Created by barnes on 8/6/15.
  */
 public class SplashScreen extends Activity implements QUserListner
 {
     private ProgressDialog p_Dialog;
+    //Appended by Jay begins
+    // public static GoogleAnalytics analytics;
+    // public static Tracker tracker;
+    private String name = "Ummo Splash";
+    //Appended by Jay ends
     final LinkedHashMap<String, Class<?>> listItems = new LinkedHashMap<>();
     long Delay = 10000;
+
+    @Override
+    public void joinedQsError(String err) {
+
+    }
+
+    @Override
+    public void gotJoinedQs(String string) {
+
+    }
+
+    @Override
+    public void qReady(String string) {
+
+    }
+
+    @Override
+    public void qError(String err) {
+
+    }
 
     @Override
     public void userRegistered(String string) {
@@ -38,24 +67,34 @@ public class SplashScreen extends Activity implements QUserListner
 
     @Override
     public void qJoined(String string) {
+
+
+
     }
 
     @Override
     public void qLeft(String string) {
+
     }
 
     @Override
     public void updated(String string) {
+
     }
 
     @Override
     public void categoriesReady(String string) {
+        Intent i = new Intent(this, SelectableTreeFragment.class);
+        i.putExtra("categoriesJSON", string);
+        startActivity(i);
+        finish();
+        overridePendingTransition(R.layout.fadein, R.layout.fadeout);
     }
 
     @Override
     public void allQsReady(String string) {
         Log.d("data",string);
-       listItems.put("Selectable Nodes", SelectableTreeFragment.class);
+        listItems.put("Selectable Nodes", SelectableTreeFragment.class);
         Class<?> clazz = listItems.values().toArray(new Class<?>[]{})[0];
         Intent i = new Intent(SplashScreen.this, SingleFragmentActivity.class);
         i.putExtra(SingleFragmentActivity.FRAGMENT_PARAM, clazz);
@@ -63,7 +102,6 @@ public class SplashScreen extends Activity implements QUserListner
         SplashScreen.this.finish();
         overridePendingTransition(R.layout.fadein, R.layout.fadeout);
     }
-
     @Override
     public void userRegistrationError(String err) {
         //There was an Error During Registration
@@ -99,32 +137,62 @@ public class SplashScreen extends Activity implements QUserListner
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.ummo_splash);
+        //Intent intent = new Intent(this, RegistrationIntentService.class);
+        //startService(intent);
+        //Appended by Jay begins
+        //analytics = GoogleAnalytics.getInstance(this);
+        //analytics.setLocalDispatchPeriod(1800);
+
+        //tracker = analytics.newTracker("UA-70767186-1");
+        //tracker.enableAutoActivityTracking(true);
+        //tracker.enableExceptionReporting(true);
+        //tracker.enableAdvertisingIdCollection(false);
+        //Log.i("GA says -----", "Setting screen name: " + name);
+        //tracker.setScreenName("Image~" + name);
+        //tracker.send(new HitBuilders.ScreenViewBuilder().build());
+        //Appended by Jay ends
+
         CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
                         .setDefaultFontPath("fonts/Ubuntu-C.ttf")
                         .setFontAttrId(R.attr.fontPath)
                         .build()
         );
+
+        //finish();
+        QUser user = new QUser(SplashScreen.this);
+
+        //user.getAvailableQs();
+        //Start MainActivity.class
+        if (user.isRegistered()){
+            user.getCategories();
+       /*     listItems.put("Selectable Nodes", SelectableTreeFragment.class);
+            Class<?> clazz = listItems.values().toArray(new Class<?>[]{})[0];
+            Intent i = new Intent(SplashScreen.this, SingleFragmentActivity.class);
+            i.putExtra(SingleFragmentActivity.FRAGMENT_PARAM, clazz);
+            SplashScreen.this.startActivity(i);
+          */
+        }
+
+        else {
+            Intent intent = new Intent(SplashScreen.this,qman_signup.class);
+            startActivity(intent);
+            SplashScreen.this.finish();
+        }
+
+
+
         Timer RunSplash = new Timer();
         if (isInternetOn() == true)
         {
             TimerTask ShowSplash = new TimerTask() {
                 @Override
-                public void run()
-                {
+                public void run() {
                     //Close SplashScreenActivity.class
-                    finish();
-                    //QUser user = new QUser(SplashScreen.this);
-                    //user.getAvailableQs();
-                    //Start MainActivity.class
-                    listItems.put("Selectable Nodes", SelectableTreeFragment.class);
-                    Class<?> clazz = listItems.values().toArray(new Class<?>[]{})[0];
-                    Intent i = new Intent(SplashScreen.this, SingleFragmentActivity.class);
-                    i.putExtra(SingleFragmentActivity.FRAGMENT_PARAM, clazz);
-                    SplashScreen.this.startActivity(i);
-                    SplashScreen.this.finish();
-                    overridePendingTransition(R.layout.fadein, R.layout.fadeout);
+
                 }
+
+                ;
             };
             //Start the timer
             RunSplash.schedule(ShowSplash, Delay);
@@ -148,7 +216,7 @@ public class SplashScreen extends Activity implements QUserListner
         else if ( connec.getNetworkInfo(0).getState() == android.net.NetworkInfo.State.DISCONNECTED ||
                 connec.getNetworkInfo(1).getState() == android.net.NetworkInfo.State.DISCONNECTED  )
         {
-            Toast.makeText(this, " Not internet Connection ", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Please turn on your data or connect to a wifi hotspot", Toast.LENGTH_LONG).show();
             return false;
         }
         return false;
@@ -201,10 +269,6 @@ public class SplashScreen extends Activity implements QUserListner
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
         return super.onOptionsItemSelected(item);
     }
 }

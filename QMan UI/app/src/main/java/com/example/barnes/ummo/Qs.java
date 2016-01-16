@@ -2,21 +2,32 @@ package com.example.barnes.ummo;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
+import android.preference.PreferenceManager;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.astuetz.PagerSlidingTabStrip;
 import com.example.barnes.ummo.db.Db;
 import com.example.barnes.ummo.fragment.QFragmentManager;
-import com.google.common.collect.Lists;
+import com.example.barnes.ummo.ummoAPI.JoinedQ;
+import com.github.florent37.hollyviewpager.HollyViewPager;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+
+import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.Bind;
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
-public class Qs extends FragmentActivity {
+public class Qs extends AppCompatActivity
+{
+    @Bind(R.id.hollyViewPager)
+    HollyViewPager hollyViewPager;
 
     private ViewPager viewPager;
     private PagerSlidingTabStrip pagerSlidingTabStrip;
@@ -25,22 +36,49 @@ public class Qs extends FragmentActivity {
     public List<String> qTabsNames = null;
     public List<String> qPos = null;
     int numTabs;
+    String qsJSON;
+    //I replaced the String with the JoinedQ Class, to encapsulate more information.
+    List<JoinedQ> qnames = new ArrayList<JoinedQ>();
     int tabpos;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.q);
+        String cellnumb =  PreferenceManager.getDefaultSharedPreferences(this).getString(getString(R.string.PREF_USER_CELLNUMBER),"NULL");
         CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
                         .setDefaultFontPath("fonts/Ubuntu-C.ttf")
                         .setFontAttrId(R.attr.fontPath)
                         .build()
         );
+        qsJSON=getIntent().getStringExtra("joinedQs");
+        Log.d("QSTRING",qsJSON);
+        try{
+            String qAlphaNum ="";
+            String pos = "";
+            JSONArray qArrays = new JSONArray(qsJSON);
+            for(int i=0;i<qArrays.length();i++){
+                String Qname = qArrays.getJSONObject(i).getJSONObject("managedQ").getString("qName");
+                if(cellnumb!="NULL"){
+                    JoinedQ joinedQ = new JoinedQ(qArrays.getJSONObject(i),cellnumb);
+                    qnames.add(joinedQ);
+                    pos=qArrays.getJSONObject(i).getJSONObject("managedQ").getJSONObject("qErs").getJSONObject(cellnumb).getString("position");
+                    qAlphaNum = qArrays.getJSONObject(i).getJSONObject("managedQ").getJSONObject("qErs").getJSONObject(cellnumb).getString("numCode");
+                }
+                //TextView tv = (TextView)findViewById(R.id.man_one_text);
+                //        tv.setText(qAlphaNum);
+            }
+        }
+        catch (JSONException jse)
+        {
+            Log.e("JoinedQS",jse.toString());
+        }
         db = new Db(this);
         db.open();
         qTabsNames = db.getAllQs();
         qTabsList = db.getAllQs();
         qPos = db.getQPosition();
+        db.close();
         numTabs = qTabsList.size();
         viewPager = (ViewPager) findViewById(R.id.view_pager);
         pagerSlidingTabStrip = (PagerSlidingTabStrip) findViewById(R.id.tabs);
@@ -48,11 +86,11 @@ public class Qs extends FragmentActivity {
         if (intent != null)
         {
             String tabPos = intent.getStringExtra("tabPos");
-            if (!tabPos.equals("null"))
+            if ((tabPos!=null))
             {
                 int int_tabPos = Integer.parseInt(tabPos);
                 tabpos = int_tabPos;
-                viewPager.setAdapter(new QFragmentManager(getSupportFragmentManager(), getTitles(), tabpos));
+                viewPager.setAdapter(new QFragmentManager(getSupportFragmentManager(), qnames, tabpos));
                 pagerSlidingTabStrip.setViewPager(viewPager);
                 if (tabpos != -1)
                 {
@@ -62,16 +100,15 @@ public class Qs extends FragmentActivity {
             else
             {
                 tabpos = -1;
-                viewPager.setAdapter(new QFragmentManager(getSupportFragmentManager(), getTitles(), tabpos));
+                viewPager.setAdapter(new QFragmentManager(getSupportFragmentManager(), qnames, tabpos));
                 pagerSlidingTabStrip.setViewPager(viewPager);
             }
         }
-        db.close();
     }
 
     private List<String> getTitles()
     {
-        if (qTabsNames.size() == 1)
+       /* if (qTabsNames.size() == 1)
             return Lists.newArrayList(qTabsNames.get(0));
         else if (qTabsNames.size() == 2)
             return Lists.newArrayList(qTabsNames.get(0), qTabsNames.get(1));
@@ -86,7 +123,8 @@ public class Qs extends FragmentActivity {
         else if (qTabsNames.size() == 7)
             return Lists.newArrayList(qTabsNames.get(0),qTabsNames.get(1),qTabsNames.get(2),qTabsNames.get(3),qTabsNames.get(4),qTabsNames.get(5),qTabsNames.get(6));
         else
-            return Lists.newArrayList(qTabsNames.get(0));
+            return Lists.newArrayList(qTabsNames.get(0));*/
+        return new ArrayList<String>();
     }
 
     @Override
@@ -105,10 +143,6 @@ public class Qs extends FragmentActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings)
-        {
-            return true;
-        }
         return super.onOptionsItemSelected(item);
     }
 }

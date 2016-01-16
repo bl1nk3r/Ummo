@@ -4,6 +4,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 
+import com.example.barnes.ummo.ummoAPI.JoinedQ;
+
 import java.util.List;
 
 /**
@@ -12,10 +14,11 @@ import java.util.List;
 public class QFragmentManager extends FragmentPagerAdapter
 {
     int frag_count;
-    List<String> list_;
+    List<JoinedQ> list_;
     int tposition;
 
-    public QFragmentManager(FragmentManager fm, List<String> list, int tabp)
+    //So I had to change the Constructor too. or
+    public QFragmentManager(FragmentManager fm, List<JoinedQ> list, int tabp)
     {
         super(fm);
         list_ = list;
@@ -26,13 +29,13 @@ public class QFragmentManager extends FragmentPagerAdapter
     @Override
     public CharSequence getPageTitle(int position)
     {
-        return list_.get(position);
+        return list_.get(position).getqName();
     }
 
     @Override
     public Fragment getItem(int position)
     {
-        return Qfragment.newInstance(position + 1, tposition);
+        return Qfragment.newInstance(position + 1, tposition, list_.get(position));
     }
 
     @Override

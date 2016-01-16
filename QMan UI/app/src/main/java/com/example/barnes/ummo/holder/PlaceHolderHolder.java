@@ -42,7 +42,6 @@ public class PlaceHolderHolder extends TreeNode.BaseNodeViewHolder<PlaceHolderHo
     public void toggle(boolean active) {
     }
 
-
     public static class PlaceItem {
         public String name;
 
@@ -51,6 +50,4 @@ public class PlaceHolderHolder extends TreeNode.BaseNodeViewHolder<PlaceHolderHo
         }
         // rest will be hardcoded
     }
-
 }
-

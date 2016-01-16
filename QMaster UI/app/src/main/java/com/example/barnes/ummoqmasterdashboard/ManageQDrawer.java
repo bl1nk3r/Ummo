@@ -227,7 +227,7 @@ public class ManageQDrawer extends AppCompatActivity
 
         MyBaseAdapter() {
             for (int i = 0; i < SIZE; i++)
-                mDataSet.add(i, "This is row number " + i);
+                mDataSet.add(i, "Queuer number " + i);
         }
 
         @Override

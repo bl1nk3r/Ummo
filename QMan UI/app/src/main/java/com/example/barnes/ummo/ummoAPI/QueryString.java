@@ -4,9 +4,9 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 
 /**
- * Created by barnes on 9/27/15.
+ * Created by barnes on 11/1/15.
  */
-class QueryString
+public class QueryString
 {
     private StringBuilder query = new StringBuilder();
     public QueryString() {

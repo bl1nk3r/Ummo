@@ -41,4 +41,3 @@ public class ProfileHolder extends TreeNode.BaseNodeViewHolder<IconTreeItemHolde
         return R.style.TreeNodeStyleCustom;
     }
 }
-

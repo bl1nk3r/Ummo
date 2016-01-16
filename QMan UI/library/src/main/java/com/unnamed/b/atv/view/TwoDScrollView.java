@@ -34,122 +34,128 @@ import java.util.List;
  * using the two together is possible to achieve the effect of a text view
  * within a larger container.
  */
-public class TwoDScrollView extends FrameLayout {
+public class TwoDScrollView extends FrameLayout
+{
     static final int ANIMATED_SCROLL_GAP = 250;
     static final float MAX_SCROLL_FACTOR = 0.5f;
-
     private long mLastScroll;
-
     private final Rect mTempRect = new Rect();
     private Scroller mScroller;
-
     /**
      * Flag to indicate that we are moving focus ourselves. This is so the
      * code that watches for focus changes initiated outside this TwoDScrollView
      * knows that it does not have to do anything.
      */
     private boolean mTwoDScrollViewMovedFocus;
-
     /**
      * Position of the last motion event.
      */
     private float mLastMotionY;
     private float mLastMotionX;
-
     /**
      * True when the layout has changed but the traversal has not come through yet.
      * Ideally the view hierarchy would keep track of this for us.
      */
     private boolean mIsLayoutDirty = true;
-
     /**
      * The child to give focus to in the event that a child has requested focus while the
      * layout is dirty. This prevents the scroll from being wrong if the child has not been
      * laid out before requesting focus.
      */
     private View mChildToScrollTo = null;
-
     /**
      * True if the user is currently dragging this TwoDScrollView around. This is
      * not the same as 'is being flinged', which can be checked by
      * mScroller.isFinished() (flinging begins when the user lifts his finger).
      */
     private boolean mIsBeingDragged = false;
-
     /**
      * Determines speed during touch scrolling
      */
     private VelocityTracker mVelocityTracker;
-
     /**
      * Whether arrow scrolling is animated.
      */
     private int mTouchSlop;
     private int mMinimumVelocity;
     private int mMaximumVelocity;
-
-    public TwoDScrollView(Context context) {
+    public TwoDScrollView(Context context)
+    {
         super(context);
         initTwoDScrollView();
     }
 
-    public TwoDScrollView(Context context, AttributeSet attrs) {
+    public TwoDScrollView(Context context, AttributeSet attrs)
+    {
         super(context, attrs);
         initTwoDScrollView();
     }
 
-    public TwoDScrollView(Context context, AttributeSet attrs, int defStyle) {
+    public TwoDScrollView(Context context, AttributeSet attrs, int defStyle)
+    {
         super(context, attrs, defStyle);
         initTwoDScrollView();
     }
 
     @Override
-    protected float getTopFadingEdgeStrength() {
-        if (getChildCount() == 0) {
+    protected float getTopFadingEdgeStrength()
+    {
+        if (getChildCount() == 0)
+        {
             return 0.0f;
         }
         final int length = getVerticalFadingEdgeLength();
-        if (getScrollY() < length) {
+        if (getScrollY() < length)
+        {
             return getScrollY() / (float) length;
         }
         return 1.0f;
     }
 
     @Override
-    protected float getBottomFadingEdgeStrength() {
-        if (getChildCount() == 0) {
+    protected float getBottomFadingEdgeStrength()
+    {
+        if (getChildCount() == 0)
+        {
             return 0.0f;
         }
         final int length = getVerticalFadingEdgeLength();
         final int bottomEdge = getHeight() - getPaddingBottom();
         final int span = getChildAt(0).getBottom() - getScrollY() - bottomEdge;
-        if (span < length) {
+        if (span < length)
+        {
             return span / (float) length;
         }
         return 1.0f;
     }
 
     @Override
-    protected float getLeftFadingEdgeStrength() {
-        if (getChildCount() == 0) {
+    protected float getLeftFadingEdgeStrength()
+    {
+        if (getChildCount() == 0)
+        {
             return 0.0f;
         }
         final int length = getHorizontalFadingEdgeLength();
-        if (getScrollX() < length) {
+        if (getScrollX() < length)
+        {
             return getScrollX() / (float) length;
         }
         return 1.0f;
     }
 
     @Override
-    protected float getRightFadingEdgeStrength() {
-        if (getChildCount() == 0) {
+    protected float getRightFadingEdgeStrength()
+    {
+        if (getChildCount() == 0)
+        {
             return 0.0f;
         }
         final int length = getHorizontalFadingEdgeLength();
         final int rightEdge = getWidth() - getPaddingRight();
         final int span = getChildAt(0).getRight() - getScrollX() - rightEdge;
-        if (span < length) {
+        if (span < length)
+        {
             return span / (float) length;
         }
         return 1.0f;

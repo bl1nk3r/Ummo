@@ -7,7 +7,6 @@
     android:background="?android:attr/selectableItemBackground"
     android:layout_height="match_parent">
 
-
     <com.github.johnkil.print.PrintView
         android:layout_alignParentLeft="true"
         android:id="@+id/arrow_icon"
@@ -18,7 +17,7 @@
         app:iconText="@string/ic_keyboard_arrow_right"
         app:iconColor="@color/text_gray"
         app:iconFont="fonts/material-icon-font.ttf"
-        app:iconSize="20dp" />
+        app:iconSize="15dp" />
 
     <com.github.johnkil.print.PrintView
         android:id="@+id/icon"
@@ -33,13 +32,12 @@
 
     <TextView
         android:layout_centerVertical="true"
-        android:textSize="16sp"
+        android:textSize="10sp"
         android:textColor="@color/text_gray"
         android:layout_marginLeft="10dp"
         android:layout_toRightOf="@+id/icon"
         android:id="@+id/node_value"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
-
 
 </RelativeLayout>
